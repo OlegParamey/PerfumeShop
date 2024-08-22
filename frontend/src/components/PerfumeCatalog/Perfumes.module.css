@@ -1,0 +1,73 @@
+.perfumes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.perfumesHeader {
+    background-color: #ee006f;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.perfumesMain {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+}
+
+.perfumesLeftRow {
+    border: 1px solid #ff0000;
+    width: 200px;
+
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    /*here is property to hide the left bar*/
+    display: none;
+}
+
+.perfumesRightRow {
+    border: 1px solid #ff0000;
+    z-index: 0;
+    /* flex: 1; */
+    /* flex-basis: 200px; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.perfumesBlock {
+    text-align: center;
+    min-height: 200px;
+    font-size: 30px;
+    width: 15%;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* @media (max-width: 1024px) {
+    .perfumesMain {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .perfumesLeftRow,
+    .perfumesRightRow,
+    .perfumesMiddleRow {
+        flex-basis: 100%;
+        align-self: unset;
+    }
+} */

@@ -1,22 +1,64 @@
 .App {
-  text-align: center;
+    text-align: center;
+}
+
+/* Used by default with NavLink*/
+
+.active {
+    color: lightcoral;
+    text-decoration: none;
+}
+
+.activeLink {
+    color: lightcoral;
+    text-decoration: none;
+}
+
+.courseLink {
+    font-size: 35px;
+    text-decoration: none;
+}
+
+.courseLink:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+a {
+    color: rgb(134, 255, 215);
+    font-size: 35px;
+}
+
+nav {
+    background-color: darkslategray;
+    padding: 5px;
+}
+
+nav a {
+    margin: 15px;
 }
 
 button {
-  padding: 15px;
-  font-size: 30px;
-  border-radius: 8px;
-  border: 0;
-  margin: 20px;
-  cursor: pointer;
+    padding: 15px;
+    font-size: 30px;
+    border-radius: 8px;
+    border: 0;
+    margin: 20px;
+    cursor: pointer;
 }
 
 button:active {
-  background-color: rgb(201, 201, 201);
-  transform: translateY(1.2px);
+    background-color: rgb(201, 201, 201);
+    transform: translateY(1.2px);
 }
 
 h1 {
-  font-size: 90px;
-  margin-top: 20px;
+    font-size: 60px;
+    margin-top: 20px;
 }
