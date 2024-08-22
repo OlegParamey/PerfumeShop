@@ -28,6 +28,9 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 a {
@@ -60,5 +63,5 @@ button:active {
 
 h1 {
     font-size: 60px;
-    margin-top: 20px;
+    margin: 20px;
 }

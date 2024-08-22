@@ -1,6 +1,7 @@
+import { v4 as uuidv4 } from 'uuid'
 import styles from './Perfumes.module.css'
 import NUMBERS from '../../data/ArrayWithNumbers'
-import { v4 as uuidv4 } from 'uuid'
+import Filter from '../Filter/Filter'
 
 function Perfumes() {
     return (
@@ -10,15 +11,7 @@ function Perfumes() {
             </header>
             <main className={styles.perfumesMain}>
                 <div className={styles.perfumesLeftRow}>
-                    <div
-                        style={{
-                            height: '100%',
-                            width: '200px',
-                            backgroundColor: 'gray',
-                        }}
-                    >
-                        Left
-                    </div>
+                    <Filter />
                 </div>
 
                 <div className={styles.perfumesRightRow}>
