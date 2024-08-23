@@ -27,6 +27,12 @@ Your app is ready to be deployed!
 
 ### Libraries installed during the App creation:
 
-React Router DOM
+## front-end part
 
+React Router DOM
 uuidv4 to generate keys for React Components
+
+## back-end part
+
+Express
+Cors
