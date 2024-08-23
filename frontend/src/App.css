@@ -5,21 +5,12 @@
 /* Used by default with NavLink*/
 
 .active {
-    color: lightcoral;
-    text-decoration: none;
+    color: rgb(255, 167, 167);
+    text-decoration: underline;
 }
 
 .activeLink {
-    color: lightcoral;
-    text-decoration: none;
-}
-
-.courseLink {
-    font-size: 35px;
-    text-decoration: none;
-}
-
-.courseLink:hover {
+    color: rgb(255, 167, 167);
     text-decoration: underline;
 }
 
@@ -34,17 +25,21 @@ footer {
 }
 
 a {
-    color: rgb(134, 255, 215);
+    color: #ee006f;
     font-size: 35px;
 }
 
 nav {
-    background-color: darkslategray;
+    font-size: 36px;
+    color: #ee006f;
+    background-color: #ffffff;
     padding: 5px;
 }
 
 nav a {
-    margin: 15px;
+    width: 100px;
+    margin: 50px;
+    text-decoration: none;
 }
 
 button {

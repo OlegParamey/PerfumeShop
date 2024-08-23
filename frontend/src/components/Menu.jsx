@@ -4,11 +4,7 @@ function Menu() {
     return (
         <nav>
             <NavLink
-                style={({ isActive }) =>
-                    isActive
-                        ? { color: 'lightcoral', textDecoration: 'none' }
-                        : {}
-                }
+                className={({ isActive }) => (isActive ? 'activeLink' : 'link')}
                 to="."
                 end
             >
