@@ -1,13 +1,13 @@
 const express = require('express')
 const cors = require('cors')
-const perfumeData = require('./data/json/Perfumes.json')
+const perfumesData = require('./data/json/Perfumes.json')
 
 const app = express()
 
-app.use(cors())
+app.use(cors()) //cross origin resource sharing
 
-app.get('/www', (req, res) => {
-    res.json(perfumeData)
+app.get('/perfumes', (req, res) => {
+    res.json(perfumesData)
 })
 
 const port = process.env.PORT || 4000
