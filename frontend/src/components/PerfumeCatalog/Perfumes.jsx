@@ -3,7 +3,7 @@ import styles from './Perfumes.module.css'
 import NUMBERS from '../../data/ArrayWithNumbers'
 import Filter from '../Filter/Filter'
 
-function Perfumes() {
+function Perfumes({ perfumesData }) {
     return (
         <div className={styles.perfumes}>
             <header className={styles.perfumesHeader}>
@@ -21,6 +21,12 @@ function Perfumes() {
                         </div>
                     ))}
                 </div>
+
+                {/* <button
+                    onClick={() => {
+                        console.log(perfumesData)
+                    }}
+                ></button> */}
             </main>
         </div>
     )

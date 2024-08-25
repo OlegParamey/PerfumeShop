@@ -29,10 +29,18 @@ Your app is ready to be deployed!
 
 ## front-end part
 
-React Router DOM
-uuidv4 to generate keys for React Components
+# React Router DOM
+
+# uuidv4 to generate keys for React Components
+
+# Axios
+
+# @reduxjs/toolkit
+
+# react-redux
 
 ## back-end part
 
-Express
-Cors
+# Express
+
+# Cors

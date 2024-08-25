@@ -10,7 +10,14 @@ function Menu() {
             >
                 Home
             </NavLink>{' '}
-            |<NavLink to="perfumes">Perfumes</NavLink> |
+            |
+            <NavLink
+                to="perfumes"
+                className={({ isActive }) => (isActive ? 'activeLink' : 'link')}
+            >
+                Perfumes
+            </NavLink>{' '}
+            |
             <NavLink
                 className={({ isActive }) => (isActive ? 'activeLink' : 'link')}
                 to="about"
