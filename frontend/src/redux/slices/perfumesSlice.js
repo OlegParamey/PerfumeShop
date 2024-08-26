@@ -5,11 +5,21 @@ const initialState = []
 const perfumesSlice = createSlice({
     initialState,
     name: 'perfumes',
-    reducers: {},
+    reducers: {
+        getPerfumeList: (state, action) => {
+            return action.payload
+        },
+        addPerfume: (state, action) => {
+            return state.push(action.payload)
+        },
+    },
+    selectors: {
+        selectPerffumes: (state, action) => state,
+    },
 })
 
-export const {} = perfumesSlice.actions
+export const { addPerfume, getPerfumeList } = perfumesSlice.actions
 
-export const selectPerffumes = (state) => state.perfumes
+export const { selectPerffumes } = perfumesSlice.selectors
 
 export default perfumesSlice.reducer

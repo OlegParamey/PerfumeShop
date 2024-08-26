@@ -1,9 +1,32 @@
 import { v4 as uuidv4 } from 'uuid'
+import { useEffect } from 'react'
+import axios from 'axios'
+import {
+    selectPerffumes,
+    getPerfumeList,
+} from '../../redux/slices/perfumesSlice'
+import { useSelector, useDispatch } from 'react-redux'
 import styles from './Perfumes.module.css'
-import NUMBERS from '../../data/ArrayWithNumbers'
 import Filter from '../Filter/Filter'
+import PerfumeCard from './PerfumeCard'
 
-function Perfumes({ perfumesData }) {
+function Perfumes() {
+    const perfumesData = useSelector(selectPerffumes)
+    const dispatch = useDispatch()
+
+    //Here should be a fetch API
+    useEffect(() => {
+        async function fetchPerfumesData() {
+            try {
+                const res = await axios.get('http://localhost:4000/perfumes')
+                dispatch(getPerfumeList(res.data))
+            } catch (error) {
+                console.error('Failed to fetch perfumes data:', error)
+            }
+        }
+        fetchPerfumesData()
+    }, [dispatch])
+
     return (
         <div className={styles.perfumes}>
             <header className={styles.perfumesHeader}>
@@ -15,18 +38,23 @@ function Perfumes({ perfumesData }) {
                 </div>
 
                 <div className={styles.perfumesRightRow}>
-                    {NUMBERS.map((num) => (
-                        <div className={styles.perfumesBlock} key={uuidv4()}>
-                            {num}
-                        </div>
-                    ))}
+                    {perfumesData &&
+                        perfumesData.map((perfume) => (
+                            <PerfumeCard
+                                perfume={perfume}
+                                className={styles.perfumesBlock}
+                                key={uuidv4()}
+                            ></PerfumeCard>
+                        ))}
                 </div>
 
-                {/* <button
+                <button
                     onClick={() => {
-                        console.log(perfumesData)
+                        console.log(perfumesData) // Теперь perfumesData всегда актуально
                     }}
-                ></button> */}
+                >
+                    Log Perfumes Data
+                </button>
             </main>
         </div>
     )
