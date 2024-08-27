@@ -47,14 +47,6 @@ function Perfumes() {
                             ></PerfumeCard>
                         ))}
                 </div>
-
-                <button
-                    onClick={() => {
-                        console.log(perfumesData) // Теперь perfumesData всегда актуально
-                    }}
-                >
-                    Log Perfumes Data
-                </button>
             </main>
         </div>
     )

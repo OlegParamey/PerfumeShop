@@ -16,7 +16,6 @@ function Filter() {
                     transform: 'rotate(180deg)',
                     padding: '40px 0px',
                     writingMode: 'vertical-rl',
-                    letterSpacing: '20px',
                     display: 'flex',
                     textAlign: 'right',
                     alignItems: 'center',

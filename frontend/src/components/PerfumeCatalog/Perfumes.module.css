@@ -38,7 +38,8 @@
 }
 
 .perfumesBlock {
-    height: 100px;
+    box-sizing: border-box;
+    height: auto;
     width: auto;
     background-color: #ffffff;
     padding: 10px;
