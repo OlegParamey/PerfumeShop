@@ -25,22 +25,22 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-### Libraries installed during the App creation:
+# Libraries installed during the App creation:
 
 ## front-end part
 
-# React Router DOM
+### React Router DOM
 
-# uuidv4 to generate keys for React Components
+### uuidv4 to generate keys for React Components
 
-# Axios
+### Axios
 
-# @reduxjs/toolkit
+### @reduxjs/toolkit
 
-# react-redux
+### react-redux
 
 ## back-end part
 
-# Express
+### Express
 
-# Cors
+### Cors
