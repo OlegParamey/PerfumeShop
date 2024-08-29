@@ -28,5 +28,65 @@
         "imgSrc": "/img/TF.png",
         "title": "TOM FORD PRIVATE BLEND TOBACCO VANILLE",
         "brand": "TOM FORD"
+    },
+    {
+        "imgSrc": "/img/DiorHI.png",
+        "title": "DIOR HOMME EAU DE PARFUM SPRAY INTENSE",
+        "brand": "DIOR"
+    },
+    {
+        "imgSrc": "/img/1mil.png",
+        "title": "1 MILLION ELIXIR",
+        "brand": "PACO RABANNE"
+    },
+    {
+        "imgSrc": "/img/armani.png",
+        "title": "EMPORIO ARMANI STRONGER WITH YOU ABSOLUTELY",
+        "brand": "GIORGIO ARMANI"
+    },
+    {
+        "imgSrc": "/img/JP.png",
+        "title": "LA BEAU LE PARFUM",
+        "brand": "JEAN PAUL GAULTIER"
+    },
+    {
+        "imgSrc": "/img/prada.png",
+        "title": "LUNA ROSSA CARBON",
+        "brand": "PRADA"
+    },
+    {
+        "imgSrc": "/img/TF.png",
+        "title": "TOM FORD PRIVATE BLEND TOBACCO VANILLE",
+        "brand": "TOM FORD"
+    },
+    {
+        "imgSrc": "/img/DiorHI.png",
+        "title": "DIOR HOMME EAU DE PARFUM SPRAY INTENSE",
+        "brand": "DIOR"
+    },
+    {
+        "imgSrc": "/img/1mil.png",
+        "title": "1 MILLION ELIXIR",
+        "brand": "PACO RABANNE"
+    },
+    {
+        "imgSrc": "/img/armani.png",
+        "title": "EMPORIO ARMANI STRONGER WITH YOU ABSOLUTELY",
+        "brand": "GIORGIO ARMANI"
+    },
+    {
+        "imgSrc": "/img/JP.png",
+        "title": "LA BEAU LE PARFUM",
+        "brand": "JEAN PAUL GAULTIER"
+    },
+    {
+        "imgSrc": "/img/prada.png",
+        "title": "LUNA ROSSA CARBON",
+        "brand": "PRADA"
+    },
+    {
+        "imgSrc": "/img/TF.png",
+        "title": "TOM FORD PRIVATE BLEND TOBACCO VANILLE",
+        "brand": "TOM FORD"
     }
 ]
