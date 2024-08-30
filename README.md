@@ -27,7 +27,7 @@ Your app is ready to be deployed!
 
 # Libraries installed during the App creation:
 
-## front-end part
+## `front-end part`
 
 ### React Router DOM
 
@@ -39,7 +39,7 @@ Your app is ready to be deployed!
 
 ### react-redux
 
-## back-end part
+## `back-end part`
 
 ### Express
 

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import ButtonAddToCart from '../Button/ButtonAddToCart'
 
 function PerfumeCard({ perfume, className }) {
     const navigate = useNavigate()
@@ -10,6 +11,7 @@ function PerfumeCard({ perfume, className }) {
             <p>
                 <strong>{perfume.brand}</strong>
             </p>
+            <ButtonAddToCart />
         </div>
     )
 }

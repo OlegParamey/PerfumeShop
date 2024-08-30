@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Весь экран */
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.singlePerfume {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(213, 34, 249);
+    gap: 40px;
+}
+
+.singlePerfume img {
+    margin-right: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 45px;
+}
+
+.container p {
+    margin: 5px 0;
+    color: #000;
+}
+
+.container strong {
+    font-size: 1.5rem;
+    color: #e600e6;
+}
+
+.container button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #ee006f;
+    color: #ffffff;
+    width: 300px;
+}
