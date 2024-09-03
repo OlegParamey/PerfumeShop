@@ -24,11 +24,6 @@ footer {
     width: 100%;
 }
 
-a {
-    color: #ee006f;
-    font-size: 35px;
-}
-
 nav {
     font-size: 36px;
     color: #ee006f;
@@ -36,23 +31,42 @@ nav {
     padding: 5px;
 }
 
-nav a {
-    width: 100px;
-    margin: 50px;
+nav > div {
+    display: grid;
+    grid-template-columns: repeat(7, 200px);
+    align-items: center;
+    justify-items: center;
+}
+
+div.navLinks > a {
+    color: #ee006f;
+    font-size: 35px;
+    margin: 10px 0px;
+    border-right: 3px solid #ee006f;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 200px;
     text-decoration: none;
 }
 
+.navLinks > a:last-child {
+    border: none;
+}
+
 button {
+    height: 65px;
     padding: 15px;
+    margin: 20px;
     font-size: 30px;
     border-radius: 8px;
-    border: 0;
-    margin: 20px;
+
+    background-color: white;
     cursor: pointer;
 }
 
 button:active {
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(0, 0, 0);
+    color: white;
     transform: translateY(1.2px);
 }
 

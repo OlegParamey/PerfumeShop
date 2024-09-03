@@ -3,7 +3,7 @@ import ButtonAddToCart from '../Button/ButtonAddToCart'
 
 function PerfumeCard({ perfume, className }) {
     const navigate = useNavigate()
-
+    //className = perfumesBlock
     return (
         <div className={className}>
             <div onClick={() => navigate(`./${perfume.id}`)}>
