@@ -33,6 +33,7 @@
 
 .perfumesRightRow {
     display: grid;
+    position: relative;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 10px; /* Расстояние между карточками */
     padding: 16px;
@@ -52,15 +53,11 @@
     transition: background 1s;
 }
 
-.perfumesBlock:active {
-    box-shadow: none;
-}
-
 .perfumesBlock:hover {
     background-color: #fb00ff32;
 }
 
-.perfumesBlock > img {
+.perfumesBlock img {
     width: 100%;
     max-width: 200px;
     height: auto;
