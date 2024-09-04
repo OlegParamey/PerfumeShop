@@ -7,26 +7,26 @@
 }
 
 .perfumesHeader {
-    background-color: #ee006f;
+    background-color: #000000;
     color: #fff;
     width: 100%;
-    padding: 20px 0px;
+    padding: 10px 0px;
+    margin: 10px 0px;
 }
 
 .perfumesMain {
-    background-color: #ffffff;
     color: #000;
     width: 100%;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 200px 1fr;
-    gap: 15px; /* Отступ между слайдером и карточками */
 }
 
 .perfumesLeftRow {
     width: 200px;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 0 20px;
     /*here is property to hide the left bar*/
     display: block;
 }
@@ -34,7 +34,8 @@
 .perfumesRightRow {
     display: grid;
     position: relative;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    background-color: #fff;
     gap: 10px; /* Расстояние между карточками */
     padding: 16px;
 }
@@ -48,16 +49,15 @@
     padding: 10px;
     margin: 10px;
     background-color: #ffffff;
-    border: 1px solid #ccc;
+    border: 2px solid #36383e;
     text-align: center;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgb(213, 34, 249);
     cursor: pointer;
     transition: background 1s;
 }
 
 .perfumesBlock:hover {
-    background-color: #fb00ff32;
+    background-color: #36383e68;
 }
 
 .perfumesBlock img {
@@ -71,7 +71,7 @@ strong {
     left: 0;
     right: 0;
     text-align: center;
-    color: rgb(213, 34, 249);
+    color: rgb(0, 2, 122);
 }
 
 @media (max-width: 1024px) {

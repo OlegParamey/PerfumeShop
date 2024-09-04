@@ -10,7 +10,7 @@ function SinglePerfume() {
     const { slug } = useParams()
     const navigate = useNavigate()
     const perfume = useSelector(selectPerffumes).find((obj) => obj.id === slug)
-    const [selectedCapacity, setSelectedCapacity] = useState(null)
+    const [selectedCapacity, setSelectedCapacity] = useState('30 ml')
 
     const handleCheckboxChange = (value) => {
         setSelectedCapacity(value)
@@ -58,8 +58,8 @@ function SinglePerfume() {
                                         styles={styles}
                                         onClick={handleCheckboxChange}
                                     />
-                                    <ButtonAddToCart type="submit" />
                                 </div>
+                                <ButtonAddToCart type="submit" />
                             </form>
                         </div>
                     </div>
