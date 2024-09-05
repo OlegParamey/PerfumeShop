@@ -5,25 +5,39 @@ import { selectPerffumes } from '../../../redux/slices/perfumesSlice'
 import ButtonAddToCart from '../../Button/ButtonAddToCart'
 import styles from './SinglePerfume.module.css'
 import FormOption from './FormOption/FormOption'
+import FORMOPTIONLIST from '../../../data/FORMOPTIONLIST'
 
 function SinglePerfume() {
     const { slug } = useParams()
     const navigate = useNavigate()
     const perfume = useSelector(selectPerffumes).find((obj) => obj.id === slug)
-    const [selectedCapacity, setSelectedCapacity] = useState('30 ml')
+    const [CapacityOptionList, setCapacityOptionList] = useState(FORMOPTIONLIST)
 
-    const handleCheckboxChange = (value) => {
-        setSelectedCapacity(value)
-    }
     useEffect(() => {
         if (!perfume) {
             navigate(-1)
         }
     }, [perfume, navigate])
 
-    function handleSubmitForm(e) {
+    const handlerOptionSelect = (id) => {
+        setCapacityOptionList(
+            CapacityOptionList.map((obj) =>
+                obj.id === id
+                    ? { ...obj, isActive: true }
+                    : { ...obj, isActive: false }
+            )
+        )
+    }
+
+    const handleSubmitForm = (e) => {
         e.preventDefault()
-        console.log(selectedCapacity)
+        const selectedOption = CapacityOptionList.find((obj) => {
+            if (obj.isActive === true) {
+                return obj
+            }
+            return null
+        })
+        console.log(selectedOption)
     }
 
     return (
@@ -40,24 +54,18 @@ function SinglePerfume() {
                             </p>
                             <form onSubmit={handleSubmitForm}>
                                 <div className={styles.form_checkbox}>
-                                    <FormOption
-                                        capacity={'30 ml'}
-                                        price={299}
-                                        styles={styles}
-                                        onClick={handleCheckboxChange}
-                                    />
-                                    <FormOption
-                                        capacity={'50 ml'}
-                                        price={499}
-                                        styles={styles}
-                                        onClick={handleCheckboxChange}
-                                    />
-                                    <FormOption
-                                        capacity={'100 ml'}
-                                        price={799}
-                                        styles={styles}
-                                        onClick={handleCheckboxChange}
-                                    />
+                                    {CapacityOptionList.map((obj) => (
+                                        <FormOption
+                                            className={
+                                                obj.isActive
+                                                    ? `${styles.option} ${styles.selectedOption}`
+                                                    : styles.option
+                                            }
+                                            data={obj}
+                                            onClickHandler={handlerOptionSelect}
+                                            key={obj.capacity}
+                                        />
+                                    ))}
                                 </div>
                                 <ButtonAddToCart type="submit" />
                             </form>

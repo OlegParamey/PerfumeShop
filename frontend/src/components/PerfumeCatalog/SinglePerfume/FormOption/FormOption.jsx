@@ -1,9 +1,9 @@
-function FormOption({ capacity, price, styles, onClick }) {
+function FormOption({ className, data, onClickHandler }) {
     return (
-        <div className={styles.option} onClick={() => onClick(`${capacity}`)}>
-            <p>{capacity}</p>
+        <div className={className} onClick={() => onClickHandler(data.id)}>
+            <p>{data.capacity}</p>
             <p>
-                {`${price}.99 `}
+                {`${data.price} `}
                 <strong>USD</strong>
             </p>
         </div>

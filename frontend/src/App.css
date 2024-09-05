@@ -5,12 +5,12 @@
 /* Used by default with NavLink*/
 
 .active {
-    color: rgb(255, 167, 167);
+    color: rgb(255 77 77);
     text-decoration: underline;
 }
 
 .activeLink {
-    color: rgb(255, 167, 167);
+    color: rgb(255 77 77);
     text-decoration: underline;
 }
 
