@@ -13,7 +13,7 @@ function PerfumeCard({ perfume, className }) {
                     <strong>{perfume.brand}</strong>
                 </p>
             </div>
-            <ButtonAddToCart />
+            {/* <ButtonAddToCart /> */}
         </div>
     )
 }

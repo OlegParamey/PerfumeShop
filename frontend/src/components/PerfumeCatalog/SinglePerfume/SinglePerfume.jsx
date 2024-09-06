@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { selectPerffumes } from '../../../redux/slices/perfumesSlice'
+import { addPerfumeToCart } from '../../../redux/slices/cartSlice'
 import ButtonAddToCart from '../../Button/ButtonAddToCart'
 import styles from './SinglePerfume.module.css'
 import FormOption from './FormOption/FormOption'
@@ -9,6 +10,7 @@ import FORMOPTIONLIST from '../../../data/FORMOPTIONLIST'
 
 function SinglePerfume() {
     const { slug } = useParams()
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const perfume = useSelector(selectPerffumes).find((obj) => obj.id === slug)
     const [CapacityOptionList, setCapacityOptionList] = useState(FORMOPTIONLIST)
@@ -37,7 +39,7 @@ function SinglePerfume() {
             }
             return null
         })
-        console.log(selectedOption)
+        dispatch(addPerfumeToCart({ ...selectedOption, ...perfume }))
     }
 
     return (

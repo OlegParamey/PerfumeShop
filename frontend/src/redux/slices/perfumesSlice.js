@@ -13,13 +13,10 @@ const perfumesSlice = createSlice({
             return state.push(action.payload)
         },
     },
-    selectors: {
-        selectPerffumes: (state, action) => state,
-    },
 })
 
 export const { addPerfume, getPerfumeList } = perfumesSlice.actions
 
-export const { selectPerffumes } = perfumesSlice.selectors
+export const selectPerffumes = (state) => state.perfumes
 
 export default perfumesSlice.reducer

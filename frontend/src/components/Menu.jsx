@@ -1,43 +1,83 @@
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+// eslint-disable-next-line no-unused-vars
+import { BsCart4, BsPersonFill } from 'react-icons/bs'
+import { selectCartList } from '../redux/slices/cartSlice'
+import CartItemsList from './Cart/CartItemsList'
 
 function Menu() {
+    const cartItemsList = useSelector(selectCartList)
     return (
         <nav>
             <div className="navLinks">
-                <NavLink
-                    className={({ isActive }) =>
-                        isActive ? 'activeLink' : 'link'
-                    }
-                    to="."
-                    end
-                >
-                    Home
-                </NavLink>
+                <div className="leftLinks">
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive ? 'activeLink' : 'link'
+                        }
+                        to="."
+                        end
+                    >
+                        Home
+                    </NavLink>
 
-                <NavLink
-                    to="perfumes"
-                    className={({ isActive }) =>
-                        isActive ? 'activeLink' : 'link'
-                    }
-                >
-                    Perfumes
-                </NavLink>
-                <NavLink
-                    className={({ isActive }) =>
-                        isActive ? 'activeLink' : 'link'
-                    }
-                    to="about"
-                >
-                    About
-                </NavLink>
-                <NavLink
-                    className={({ isActive }) =>
-                        isActive ? 'activeLink' : 'link'
-                    }
-                    to="contacts"
-                >
-                    Contacts
-                </NavLink>
+                    <NavLink
+                        to="perfumes"
+                        className={({ isActive }) =>
+                            isActive ? 'activeLink' : 'link'
+                        }
+                    >
+                        Perfumes
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive ? 'activeLink' : 'link'
+                        }
+                        to="about"
+                    >
+                        About
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive ? 'activeLink' : 'link'
+                        }
+                        to="contacts"
+                    >
+                        Contacts
+                    </NavLink>
+                </div>
+                <div className="rightIcons">
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive ? 'activeLink' : 'link'
+                        }
+                        to="cart"
+                    >
+                        <div className="dropDown">
+                            <BsCart4 />
+                            <div className="dropDown-Content">
+                                {cartItemsList.length > 0 ? (
+                                    cartItemsList.map((obj) => (
+                                        <CartItemsList
+                                            itemData={obj}
+                                            key={`${obj.id}${obj.capacity}`}
+                                        />
+                                    ))
+                                ) : (
+                                    <p>Cart is empty.</p>
+                                )}
+                            </div>
+                        </div>
+                    </NavLink>
+                    {/* <NavLink
+                    // className={({ isActive }) =>
+                    //     isActive ? 'activeLink' : 'link'
+                    // }
+                    // to="profile"
+                    >
+                        <BsPersonFill />
+                    </NavLink> */}
+                </div>
             </div>
         </nav>
     )

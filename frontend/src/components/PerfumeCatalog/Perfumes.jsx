@@ -7,8 +7,6 @@ import PerfumeCard from './PerfumeCard'
 function Perfumes() {
     const perfumesData = useSelector(selectPerffumes)
 
-    //Here should be a fetch API
-
     return (
         <div className={styles.perfumes}>
             <header className={styles.perfumesHeader}>

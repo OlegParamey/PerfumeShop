@@ -10,6 +10,7 @@ import SinglePerfume from './components/PerfumeCatalog/SinglePerfume/SinglePerfu
 import About from './components/About/About'
 import Contacts from './components/Contacts/Contacts'
 import NotFound from './components/NotFound/NotFound'
+import Cart from './components/Cart/Cart'
 import './App.css'
 import { useDispatch } from 'react-redux'
 
@@ -46,6 +47,7 @@ function App() {
                     ></Route>
                     <Route path="about" element={<About />}></Route>
                     <Route path="contacts" element={<Contacts />}></Route>
+                    <Route path="cart" element={<Cart />}></Route>
                     <Route path="*" element={<NotFound />}></Route>
                 </Route>
             </Routes>
