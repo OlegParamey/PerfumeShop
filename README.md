@@ -39,6 +39,8 @@ Your app is ready to be deployed!
 
 ### react-redux
 
+### react-icons
+
 ## `back-end part`
 
 ### Express

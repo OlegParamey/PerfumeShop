@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 // eslint-disable-next-line no-unused-vars
 import { BsCart4, BsPersonFill } from 'react-icons/bs'
 import { selectCartList } from '../redux/slices/cartSlice'
-import CartItemsList from './Cart/CartItemsList'
+import CartDropDownItemsList from './Cart/CartDropDownItemsList'
 
 function Menu() {
     const cartItemsList = useSelector(selectCartList)
@@ -54,11 +54,13 @@ function Menu() {
                         to="cart"
                     >
                         <div className="dropDown">
-                            <BsCart4 />
+                            <div className="iconContainer">
+                                <BsCart4 />
+                            </div>
                             <div className="dropDown-Content">
                                 {cartItemsList.length > 0 ? (
                                     cartItemsList.map((obj) => (
-                                        <CartItemsList
+                                        <CartDropDownItemsList
                                             itemData={obj}
                                             key={`${obj.id}${obj.capacity}`}
                                         />
