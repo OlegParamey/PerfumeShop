@@ -1,17 +1,17 @@
 import styles from './Cart.module.css'
 
-function CartListItem({ data }) {
+function CartListsItem({ data }) {
     return (
-        <div className={styles.cartListItem}>
+        <div className={styles.listItem}>
             <img src={data.imgSrc} alt={data.brand} />
-            <div className={styles.cartListItemInfoContainer}>
+            <div className={styles.listItemInfoContainer}>
                 <p>{data.title}</p>
                 <p>{data.brand}</p>
-                <p>{data.price}</p>
                 <p>{data.capacity}</p>
+                <strong>{data.price} zł</strong>
             </div>
         </div>
     )
 }
 
-export default CartListItem
+export default CartListsItem
