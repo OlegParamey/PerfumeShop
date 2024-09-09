@@ -62,7 +62,7 @@ function Menu() {
                                     cartItemsList.map((obj) => (
                                         <CartDropDownItemsList
                                             itemData={obj}
-                                            key={`${obj.id}${obj.capacity}`}
+                                            key={`${obj.productId}`}
                                         />
                                     ))
                                 ) : (

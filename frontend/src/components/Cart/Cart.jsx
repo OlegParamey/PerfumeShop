@@ -15,7 +15,7 @@ function Cart() {
                     cartList.map((perfume) => (
                         <CartListsItem
                             data={perfume}
-                            key={`${perfume.id}${perfume.capacity}`}
+                            key={`${perfume.productId}`}
                         />
                     ))}
             </div>

@@ -9,7 +9,9 @@ function CartDropDownItemsList({ itemData }) {
                 <p>
                     {itemData.price} <strong>USD</strong>
                 </p>
-                <p>{itemData.capacity}</p>
+                <p>
+                    {itemData.capacity} <strong>ML</strong>
+                </p>
             </div>
         </div>
     )
