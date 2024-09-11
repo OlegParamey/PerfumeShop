@@ -7,6 +7,7 @@ import CartDropDownItemsList from './Cart/CartDropDownItemsList'
 
 function Menu() {
     const cartItemsList = useSelector(selectCartList)
+
     return (
         <nav>
             <div className="navLinks">
@@ -57,6 +58,11 @@ function Menu() {
                             <div className="iconContainer">
                                 <BsCart4 />
                             </div>
+                            {cartItemsList.length > 0 && (
+                                <div className="cartListNotification">
+                                    {cartItemsList.length}
+                                </div>
+                            )}
                             <div className="dropDown-Content">
                                 {cartItemsList.length > 0 ? (
                                     cartItemsList.map((obj) => (

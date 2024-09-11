@@ -38,60 +38,57 @@
     box-sizing: border-box;
     margin: 25px auto;
     width: 70%;
-    background-color: black;
-    border-radius: 15px;
+    height: 100%;
 }
 
 .listItem {
     display: flex;
-    align-content: center;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 5px;
-    padding: 10px 0;
     background-color: white;
-    border-bottom: 2px solid rgb(121, 121, 121);
-}
-
-.listItem:first-child {
-    margin-top: 10px;
-    border-radius: 15px 15px 0 0;
+    border: 1px solid black;
+    height: 250px;
 }
 
 .listItem:last-child {
-    margin-bottom: 10px;
     border-bottom: none;
-    border-radius: 0 0 15px 15px;
+}
+
+.imgContainer {
+    background-color: black;
+    height: 100%;
+    width: auto;
+}
+
+.imgContainer > img {
+    background-color: white;
+    margin: 25px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.itemCount {
+    color: #000;
+    background-color: aquamarine;
+    width: 50px;
+    height: 100%;
+    display: flex; /* Use flexbox to stretch the content */
+    align-items: center; /* Center the content vertically */
+    justify-content: center;
 }
 
 .listItemInfoContainer {
-    display: grid;
-    box-sizing: border-box;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    align-content: center;
-    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
     font-size: 35px;
     width: 70%;
     height: 100%;
     color: #000;
     background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 10px;
 }
 
-.listItemInfoContainer > p,
-.listItemInfoContainer > strong {
-    border-bottom: 3px solid rgb(0, 0, 0);
-    padding: 10px 0;
-    font-weight: bold;
-}
-
-.listItemInfoContainer > strong {
-    border: none;
-}
-
-.listItem > img {
-    max-width: 300px;
-    max-height: 300px;
+.itemCapacityPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

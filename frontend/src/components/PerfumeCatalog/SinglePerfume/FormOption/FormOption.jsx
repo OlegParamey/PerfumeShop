@@ -4,7 +4,7 @@ function FormOption({ className, data, onClickHandler }) {
             <p>{data.capacity} ml</p>
             <p>
                 {`${data.price} `}
-                <strong>USD</strong>
+                <strong>zł</strong>
             </p>
         </div>
     )
