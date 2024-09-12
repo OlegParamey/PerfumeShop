@@ -82,7 +82,12 @@ function SinglePerfume() {
                                         />
                                     ))}
                                 </div>
-                                <ButtonAddToCart type="submit" />
+                                <ButtonAddToCart
+                                    type="submit"
+                                    isDisabled={CapacityOptionList.some(
+                                        (obj) => obj.isActive
+                                    )}
+                                />
                             </form>
                         </div>
                     </div>

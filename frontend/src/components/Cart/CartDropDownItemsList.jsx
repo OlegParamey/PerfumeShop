@@ -7,10 +7,10 @@ function CartDropDownItemsList({ itemData }) {
             <div className={styles.optionData}>
                 <p>{itemData.brand}</p>
                 <p>
-                    {itemData.price} <strong>USD</strong>
+                    {itemData.price} <strong>zł</strong>
                 </p>
                 <p>
-                    {itemData.capacity} <strong>ML</strong>
+                    {itemData.capacity} <strong>ml</strong>
                 </p>
             </div>
         </div>

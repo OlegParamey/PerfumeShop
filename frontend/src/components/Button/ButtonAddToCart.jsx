@@ -1,5 +1,9 @@
-function ButtonAddToCart({ type }) {
-    return <button type={type}>Add to cart</button>
+function ButtonAddToCart({ type, isDisabled }) {
+    return (
+        <button type={type} disabled={!isDisabled}>
+            Add to cart
+        </button>
+    )
 }
 
 export default ButtonAddToCart

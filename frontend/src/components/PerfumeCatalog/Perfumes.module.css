@@ -34,7 +34,7 @@
 .perfumesRightRow {
     display: grid;
     position: relative;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     background-color: #fff;
     grid-gap: 0;
 }
@@ -47,6 +47,7 @@
     box-sizing: border-box;
     border: 1px solid black;
     border-radius: 4px;
+
     padding: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -71,10 +72,9 @@ strong {
     left: 0;
     right: 0;
     text-align: center;
-    color: rgb(188, 0, 0);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1050px) {
     .perfumesMain {
         grid-template-columns: 1fr; /* В мобильной версии слайдер и карточки будут в один столбик */
     }

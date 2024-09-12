@@ -6,6 +6,10 @@ import CartSummary from './CartSummary'
 
 function Cart() {
     const cartList = useSelector(selectCartList)
+    const finalPrice = cartList.reduce(
+        (accumulator, perfume) => accumulator + +perfume.price,
+        0
+    )
     return (
         <>
             <div className={styles.cartHeader}>
@@ -19,7 +23,7 @@ function Cart() {
                             key={`${perfume.productId}`}
                         />
                     ))}
-                {cartList.length > 0 && <CartSummary />}
+                {cartList.length > 0 && <CartSummary finalPrice={finalPrice} />}
             </div>
         </>
     )
