@@ -4,7 +4,7 @@ function CartSummary({ finalPrice }) {
     return (
         <div className={styles.cartSummary}>
             <p>
-                Order total: <strong>{finalPrice}</strong> zł
+                Subtotal: <strong>{finalPrice}</strong> zł
             </p>
         </div>
     )

@@ -60,6 +60,9 @@
 .listItem:last-child {
     border-bottom: none;
 }
+.selectQuantityMenu {
+    border-radius: 5px;
+}
 
 .imgContainer {
     height: 100%;
@@ -120,6 +123,7 @@
     font-size: 50px;
     margin: 17px;
 }
-.cartSummary > strong {
+.cartSummary > p > strong {
     color: white;
+    font-style: italic;
 }

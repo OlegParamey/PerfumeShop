@@ -21,6 +21,7 @@ function Menu() {
                     >
                         Home
                     </NavLink>
+                    <span>|</span>
 
                     <NavLink
                         to="perfumes"
@@ -30,6 +31,7 @@ function Menu() {
                     >
                         Perfumes
                     </NavLink>
+                    <span>|</span>
                     <NavLink
                         className={({ isActive }) =>
                             isActive ? 'activeLink' : 'link'
@@ -38,6 +40,7 @@ function Menu() {
                     >
                         About
                     </NavLink>
+                    <span>|</span>
                     <NavLink
                         className={({ isActive }) =>
                             isActive ? 'activeLink' : 'link'

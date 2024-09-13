@@ -9,9 +9,12 @@ const cartSlice = createSlice({
         addPerfumeToCart: (state, action) => {
             return [...state, action.payload]
         },
+        setItemQuantity: (state, action) => {
+            return []
+        },
     },
 })
 
-export const { addPerfumeToCart } = cartSlice.actions
+export const { addPerfumeToCart, setItemQuantity } = cartSlice.actions
 export const selectCartList = (state) => state.cartItems
 export default cartSlice.reducer

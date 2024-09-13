@@ -3,17 +3,17 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { selectPerffumes } from '../../../redux/slices/perfumesSlice'
 import { addPerfumeToCart } from '../../../redux/slices/cartSlice'
-import { v4 as uuidv4 } from 'uuid'
 import ButtonAddToCart from '../../Button/ButtonAddToCart'
-import styles from './SinglePerfume.module.css'
 import FormOption from './FormOption/FormOption'
+import styles from './SinglePerfume.module.css'
+import { CreatePerfumeCartItem } from '../../../utils/CreatePerfumeCartItem'
 
 function SinglePerfume() {
     const { slug } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const perfume = useSelector(selectPerffumes).find((obj) => obj.id === slug)
-    const [CapacityOptionList, setCapacityOptionList] = useState(
+    const [CapacityPriceOptionList, setCapacityPriceOptionList] = useState(
         perfume ? perfume.productInfo : []
     )
 
@@ -24,8 +24,8 @@ function SinglePerfume() {
     }, [perfume, navigate])
 
     const handlerOptionSelect = ({ id, price }) => {
-        setCapacityOptionList(
-            CapacityOptionList.map((obj) =>
+        setCapacityPriceOptionList(
+            CapacityPriceOptionList.map((obj) =>
                 obj.price === price && obj.id === id
                     ? { ...obj, isActive: true }
                     : { ...obj, isActive: false }
@@ -35,24 +35,13 @@ function SinglePerfume() {
 
     const handleSubmitForm = (e) => {
         e.preventDefault()
-        const { imgSrc, title, brand, id } = perfume
-        const { capacity, price } = CapacityOptionList.find((obj) => {
+        const activeOption = CapacityPriceOptionList.find((obj) => {
             if (obj.isActive === true) {
                 return obj
             }
             return null
         })
-        dispatch(
-            addPerfumeToCart({
-                capacity,
-                price,
-                imgSrc,
-                title,
-                brand,
-                id,
-                productId: uuidv4(),
-            })
-        )
+        dispatch(addPerfumeToCart(CreatePerfumeCartItem(perfume, activeOption)))
     }
 
     return (
@@ -69,7 +58,7 @@ function SinglePerfume() {
                             </p>
                             <form onSubmit={handleSubmitForm}>
                                 <div className={styles.form_checkbox}>
-                                    {CapacityOptionList.map((obj) => (
+                                    {CapacityPriceOptionList.map((obj) => (
                                         <FormOption
                                             className={
                                                 obj.isActive
@@ -84,7 +73,7 @@ function SinglePerfume() {
                                 </div>
                                 <ButtonAddToCart
                                     type="submit"
-                                    isDisabled={CapacityOptionList.some(
+                                    isDisabled={CapacityPriceOptionList.some(
                                         (obj) => obj.isActive
                                     )}
                                 />
