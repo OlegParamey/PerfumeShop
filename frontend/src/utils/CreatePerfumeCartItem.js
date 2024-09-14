@@ -14,6 +14,7 @@ export const CreatePerfumeCartItem = (perfume, activeOption) => {
         brand,
         id,
         quantity: 1,
+        subtotal: +price,
         productId: uuidv4(),
     }
 }

@@ -104,6 +104,7 @@
 }
 
 .itemCapacityPrice {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -111,6 +112,17 @@
 
 .itemCapacityPrice > * {
     font-style: italic;
+}
+.priceForOne {
+    display: block;
+    position: absolute;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+    color: #e600e6;
+    border-bottom: 2px solid #e600e6;
+    right: 45px;
+    top: 45px;
 }
 
 .cartSummary {

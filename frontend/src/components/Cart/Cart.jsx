@@ -7,7 +7,7 @@ import CartSummary from './CartSummary'
 function Cart() {
     const cartList = useSelector(selectCartList)
     const finalPrice = cartList.reduce(
-        (accumulator, perfume) => accumulator + +perfume.price,
+        (accumulator, perfume) => accumulator + +perfume.subtotal,
         0
     )
     return (
