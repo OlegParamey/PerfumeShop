@@ -129,7 +129,7 @@ footer {
 }
 
 button {
-    height: 65px;
+    height: auto;
     padding: 15px;
     margin: 20px;
     font-size: 30px;

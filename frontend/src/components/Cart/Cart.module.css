@@ -43,6 +43,9 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
     margin: 25px;
     width: 700px;
     height: 100%;
@@ -55,6 +58,18 @@
     background-color: white;
     border: 1px solid black;
     height: 250px;
+}
+
+.listItem:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.listItem:first-child > .itemCount {
+    border-top-left-radius: 10px;
+}
+
+.listItem:first-child > .listItemInfoContainer {
+    border-top-right-radius: 10px;
 }
 
 .listItem:last-child {
@@ -130,6 +145,7 @@
     height: 100px;
     background-color: black;
     box-sizing: border-box;
+    border-radius: 0px 0px 10px 10px;
 }
 .cartSummary > p {
     font-size: 50px;

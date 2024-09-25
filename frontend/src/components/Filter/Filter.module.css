@@ -1,16 +1,89 @@
 .filterContainer {
-    color: #ffffff;
-    height: 100%;
+    position: relative;
+    color: #000000;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    margin-left: 5px;
+}
+.filterPanel {
+    position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    height: 125vh;
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 1px solid rgb(161, 161, 161);
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.filterContainer > h1 {
-    transform: rotate(180deg);
-    padding: 40px 0px;
-    writing-mode: vertical-rl;
+.filterPanelHeader {
+    font-size: 35px;
     display: flex;
-    text-align: right;
+    position: sticky;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    color: white;
+    background-color: #000000;
+    margin: 5px 0;
+}
+.filterPanelHeader > span {
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.filterPanelBody {
+    overflow: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+    height: 100%;
+}
+
+.filterPanelFooter {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid grey;
+}
+
+.filterPanelFooter > button {
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+}
+
+summary {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+summary:hover {
+    background-color: rgba(127, 255, 212, 0.461);
+}
+
+details {
+    margin-bottom: 6px;
+    border-bottom: 1px solid grey;
+}
+
+details[open] > summary {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+li {
+    text-align: start;
+    font-size: 22px;
+    border-bottom: 1px solid grey;
+    white-space: nowrap; /* Запрещает перенос текста на новую строку */
+    overflow: hidden; /* Скрывает переполнение текста */
+    text-overflow: ellipsis;
+}
+
+li:hover {
+    background-color: rgb(219, 219, 219);
 }

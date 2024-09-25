@@ -1,5 +1,5 @@
 function Contacts() {
-    return <div>Contacts</div>
+    return <div style={{ height: '100vh' }}>Contacts</div>
 }
 
 export default Contacts
