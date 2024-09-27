@@ -1,11 +1,32 @@
-import { selectPerffumes } from '../../redux/slices/perfumesSlice'
 import { useSelector } from 'react-redux'
+import { selectPerffumes } from '../../redux/slices/perfumesSlice'
+import { selectFilterList } from '../../redux/slices/filterSlice'
 import styles from './Perfumes.module.css'
 import Filter from '../Filter/Filter'
 import PerfumeCard from './PerfumeCard'
 
 function Perfumes() {
     const perfumesData = useSelector(selectPerffumes)
+    const filterData = useSelector(selectFilterList)
+
+    const filteredPerfumes = perfumesData.filter((perfume) => {
+        const matchesTitle =
+            filterData.title.length === 0 ||
+            filterData.title.some((title) =>
+                perfume.title.toLowerCase().includes(title.toLowerCase())
+            )
+
+        const matchesBrand =
+            filterData.brand.length === 0 ||
+            filterData.brand.some((brand) =>
+                perfume.brand.toLowerCase().includes(brand.toLowerCase())
+            )
+
+        return matchesTitle && matchesBrand
+    })
+
+    const dataForDisplay =
+        filteredPerfumes.length < 0 ? perfumesData : filteredPerfumes
 
     return (
         <div className={styles.perfumes}>
@@ -18,8 +39,8 @@ function Perfumes() {
                 </div>
 
                 <div className={styles.perfumesRightRow}>
-                    {perfumesData &&
-                        perfumesData.map((perfume) => (
+                    {dataForDisplay &&
+                        dataForDisplay.map((perfume) => (
                             <PerfumeCard
                                 perfume={perfume}
                                 className={styles.perfumesBlock}
