@@ -5,14 +5,16 @@ import {
     setTitle,
     setSortBy,
     setPrice,
+    setCapacity,
+    resetFilter,
 } from '../../redux/slices/filterSlice'
+import { RxReset } from 'react-icons/rx'
 import CreateFilterList from '../../utils/CreateFilterList'
 import styles from './Filter.module.css'
 import { useEffect } from 'react'
 
 function Filter() {
     const filterList = CreateFilterList(useSelector(selectPerffumes))
-    console.log(filterList)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -25,8 +27,16 @@ function Filter() {
     const handleSetFilterTitle = (element) => {
         dispatch(setTitle(element))
     }
+
+    const handleSetFilterCapacity = (element) => {
+        dispatch(setCapacity(element))
+    }
+
     const handleSetFilterSortBy = (element) => {
         dispatch(setSortBy(element))
+    }
+    const handleResetFilter = () => {
+        dispatch(resetFilter())
     }
 
     return (
@@ -35,6 +45,13 @@ function Filter() {
                 <header>
                     <p className={styles.filterPanelHeader}>
                         <span>Filter and Sort</span>
+                        <div
+                            className={styles.resetIcon}
+                            onClick={() => handleResetFilter()}
+                        >
+                            <RxReset></RxReset>
+                            <p>reset</p>
+                        </div>
                     </p>
                 </header>
                 <section className={styles.filterPanelBody}>
@@ -70,6 +87,22 @@ function Filter() {
                                     key={element}
                                     onClick={() =>
                                         handleSetFilterTitle(element)
+                                    }
+                                >
+                                    {element}
+                                </li>
+                            ))}
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>Capacity</summary>
+                        <ul>
+                            {filterList.capacity.map((element) => (
+                                <li
+                                    key={element}
+                                    onClick={() =>
+                                        handleSetFilterCapacity(element)
                                     }
                                 >
                                     {element}

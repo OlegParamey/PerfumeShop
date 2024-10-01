@@ -7,6 +7,7 @@ import PerfumeCard from './PerfumeCard'
 
 function Perfumes() {
     const perfumesData = useSelector(selectPerffumes)
+
     const filterData = useSelector(selectFilterList)
 
     const filteredPerfumes = perfumesData.filter((perfume) => {
@@ -22,11 +23,21 @@ function Perfumes() {
                 perfume.brand.toLowerCase().includes(brand.toLowerCase())
             )
 
-        return matchesTitle && matchesBrand
+        const matchesCapacity =
+            filterData.capacity.length === 0 ||
+            perfume.productInfo.some((obj) =>
+                filterData.capacity.some((capacity) =>
+                    obj.capacity.includes(capacity)
+                )
+            )
+
+        return matchesTitle && matchesBrand && matchesCapacity
     })
 
     const dataForDisplay =
-        filteredPerfumes.length < 0 ? perfumesData : filteredPerfumes
+        filteredPerfumes.length > 0 ? filteredPerfumes : perfumesData
+
+    console.log(dataForDisplay)
 
     return (
         <div className={styles.perfumes}>

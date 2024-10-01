@@ -4,10 +4,12 @@ const initialState = {
     sortBy: '',
     title: [],
     brand: [],
+    capacity: [],
     price: { from: 0, to: 0 },
 }
 
 const instanceCheck = (state, action, property) => {
+    if (!action.payload) return
     // Если элемент уже в массиве, удаляем его
     if (state[property].includes(action.payload)) {
         state[property] = state[property].filter(
@@ -24,12 +26,19 @@ const filterSlice = createSlice({
     name: 'filter',
     reducers: {
         setSortBy: (state, action) => (state.sortBy = action.payload),
+
         setTitle: (state, action) => instanceCheck(state, action, 'title'),
+
         setBrand: (state, action) => instanceCheck(state, action, 'brand'),
+
+        setCapacity: (state, action) =>
+            instanceCheck(state, action, 'capacity'),
+
         setPrice: (state, action) => {
-            state.price.from = action.payload.price.from
-            state.price.to = action.payload.price.to
+            state.price.from = action.payload.from
+            state.price.to = action.payload.to
         },
+
         resetFilter: (state) => {
             state.sortBy = initialState.sortBy
             state.title = []
@@ -39,8 +48,14 @@ const filterSlice = createSlice({
     },
 })
 
-export const { setSortBy, setTitle, setBrand, resetFilter, setPrice } =
-    filterSlice.actions
+export const {
+    setSortBy,
+    setTitle,
+    setBrand,
+    resetFilter,
+    setPrice,
+    setCapacity,
+} = filterSlice.actions
 
 export const selectFilterList = (state) => state.filter
 export default filterSlice.reducer

@@ -20,7 +20,7 @@
 }
 
 .filterPanelHeader {
-    font-size: 35px;
+    font-size: 30px;
     display: flex;
     position: sticky;
     align-items: center;
@@ -30,10 +30,29 @@
     margin: 5px 0;
 }
 .filterPanelHeader > span {
-    font-weight: 450;
-
+    font-weight: 500;
     margin-left: 5px;
     padding: 5px;
+}
+
+.resetIcon {
+    position: relative;
+}
+
+.resetIcon > svg {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.resetIcon:active {
+    color: rgb(255, 73, 73);
+}
+
+.resetIcon > p {
+    position: absolute;
+    bottom: -1px;
+    left: 5px;
+    font-size: 10px;
 }
 
 .filterPanelBody {
@@ -73,7 +92,7 @@ summary {
     position: relative;
     font-size: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     padding-left: 10px;
 }
 
