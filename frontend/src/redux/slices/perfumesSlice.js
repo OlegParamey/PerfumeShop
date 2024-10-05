@@ -17,6 +17,6 @@ const perfumesSlice = createSlice({
 
 export const { addPerfume, getPerfumeList } = perfumesSlice.actions
 
-export const selectPerffumes = (state) => state.perfumes
+export const selectPerfumes = (state) => state.perfumes
 
 export default perfumesSlice.reducer

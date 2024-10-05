@@ -35,15 +35,14 @@ const filterSlice = createSlice({
             instanceCheck(state, action, 'capacity'),
 
         setPrice: (state, action) => {
-            state.price.from = action.payload.from
-            state.price.to = action.payload.to
+            state.price.from = action.payload.price.from
+            state.price.to = action.payload.price.to
         },
 
         resetFilter: (state) => {
             state.sortBy = initialState.sortBy
             state.title = []
             state.brand = []
-            state.price = { ...initialState.price }
         },
     },
 })
@@ -58,4 +57,7 @@ export const {
 } = filterSlice.actions
 
 export const selectFilterList = (state) => state.filter
+export const selectFilterBrand = (state) => state.filter.brand
+export const selectFilterTitle = (state) => state.filter.title
+export const selectFilterCapacity = (state) => state.filter.capacity
 export default filterSlice.reducer

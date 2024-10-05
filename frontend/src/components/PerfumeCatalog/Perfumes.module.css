@@ -71,7 +71,7 @@
     height: auto;
 }
 
-strong {
+.perfumesBlock > div > strong {
     bottom: 10px;
     left: 0;
     right: 0;

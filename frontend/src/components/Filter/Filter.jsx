@@ -1,25 +1,22 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { selectPerffumes } from '../../redux/slices/perfumesSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import {
     setBrand,
     setTitle,
     setSortBy,
-    setPrice,
     setCapacity,
     resetFilter,
+    selectFilterBrand,
+    selectFilterTitle,
+    selectFilterCapacity,
 } from '../../redux/slices/filterSlice'
 import { RxReset } from 'react-icons/rx'
-import CreateFilterList from '../../utils/CreateFilterList'
 import styles from './Filter.module.css'
-import { useEffect } from 'react'
 
-function Filter() {
-    const filterList = CreateFilterList(useSelector(selectPerffumes))
+function Filter({ filterList }) {
+    const selectedBrands = useSelector(selectFilterBrand)
+    const selectedTitles = useSelector(selectFilterTitle)
+    const selectedCapacities = useSelector(selectFilterCapacity)
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(setPrice(filterList))
-    }, [dispatch, filterList])
 
     const handleSetFilterBrand = (element) => {
         dispatch(setBrand(element))
@@ -43,7 +40,7 @@ function Filter() {
         <div className={styles.filterContainer}>
             <nav className={styles.filterPanel}>
                 <header>
-                    <p className={styles.filterPanelHeader}>
+                    <div className={styles.filterPanelHeader}>
                         <span>Filter and Sort</span>
                         <div
                             className={styles.resetIcon}
@@ -52,14 +49,18 @@ function Filter() {
                             <RxReset></RxReset>
                             <p>reset</p>
                         </div>
-                    </p>
+                    </div>
                 </header>
                 <section className={styles.filterPanelBody}>
                     <details>
                         <summary>Sort by</summary>
                         <ul>
-                            <li>PRICE: LOW TO HIGH</li>
-                            <li>PRICE: HIGH TO LOW</li>
+                            <li onClick={() => handleSetFilterSortBy('')}>
+                                PRICE: LOW TO HIGH
+                            </li>
+                            <li onClick={() => handleSetFilterSortBy('')}>
+                                PRICE: HIGH TO LOW
+                            </li>
                         </ul>
                     </details>
 
@@ -68,10 +69,16 @@ function Filter() {
                         <ul>
                             {filterList.brand.map((element) => (
                                 <li
+                                    className={
+                                        selectedBrands.includes(element)
+                                            ? styles.active
+                                            : ''
+                                    }
                                     key={element}
                                     onClick={() =>
                                         handleSetFilterBrand(element)
                                     }
+                                    title={element}
                                 >
                                     {element}
                                 </li>
@@ -84,10 +91,16 @@ function Filter() {
                         <ul>
                             {filterList.title.map((element) => (
                                 <li
+                                    className={
+                                        selectedTitles.includes(element)
+                                            ? styles.active
+                                            : ''
+                                    }
                                     key={element}
                                     onClick={() =>
                                         handleSetFilterTitle(element)
                                     }
+                                    title={element}
                                 >
                                     {element}
                                 </li>
@@ -100,6 +113,11 @@ function Filter() {
                         <ul>
                             {filterList.capacity.map((element) => (
                                 <li
+                                    className={
+                                        selectedCapacities.includes(element)
+                                            ? styles.active
+                                            : ''
+                                    }
                                     key={element}
                                     onClick={() =>
                                         handleSetFilterCapacity(element)

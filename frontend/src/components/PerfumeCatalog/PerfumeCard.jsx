@@ -8,9 +8,9 @@ function PerfumeCard({ perfume, className }) {
         <div className={className} onClick={() => navigate(`./${perfume.id}`)}>
             <img src={perfume.imgSrc} alt={perfume.brand}></img>
             <p>{perfume.title}</p>
-            <p>
+            <div>
                 <strong>{perfume.brand}</strong>
-            </p>
+            </div>
             {/* <ButtonAddToCart /> */}
         </div>
     )

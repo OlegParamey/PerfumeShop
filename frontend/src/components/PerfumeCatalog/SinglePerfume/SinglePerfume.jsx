@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { selectPerffumes } from '../../../redux/slices/perfumesSlice'
+import { selectPerfumes } from '../../../redux/slices/perfumesSlice'
 import { addPerfumeToCart } from '../../../redux/slices/cartSlice'
 import ButtonAddToCart from '../../Button/ButtonAddToCart'
 import FormOption from './FormOption/FormOption'
@@ -12,7 +12,7 @@ function SinglePerfume() {
     const { slug } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const perfume = useSelector(selectPerffumes).find((obj) => obj.id === slug)
+    const perfume = useSelector(selectPerfumes).find((obj) => obj.id === slug)
     const [CapacityPriceOptionList, setCapacityPriceOptionList] = useState(
         perfume ? perfume.productInfo : []
     )
