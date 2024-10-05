@@ -1,22 +1,165 @@
 .App {
-  text-align: center;
+    text-align: center;
+}
+
+/* Used by default with NavLink*/
+
+a.activeLink {
+    color: rgb(255 77 77);
+    text-decoration: underline;
+    font-size: 35px;
+    margin: 10px 0px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+nav {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 36px;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 3px solid black;
+}
+
+.leftLinks {
+    margin-left: 40px;
+    display: flex;
+    gap: 45px; /* Расстояние между ссылками */
+    align-items: baseline;
+}
+
+.leftLinks > span {
+    font-size: 40px;
+}
+
+.rightIcons {
+    display: flex;
+    margin: 0 10px;
+}
+
+.iconContainer {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+
+.iconContainer > svg {
+    position: relative;
+    top: 7px;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+}
+
+.cartListNotification {
+    position: absolute;
+    right: 0px;
+    bottom: 40px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.link > .dropDown > .iconContainer {
+    color: white;
+    background-color: #000000;
+}
+
+.activeLink > .iconContainer > svg {
+    color: rgb(255 77 77);
+    background-color: #fff;
+}
+
+.dropDown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropDown-Content {
+    display: none;
+    position: absolute;
+    right: 0px;
+    color: #000000;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 15px;
+    box-shadow: 5px 5px 35px rgb(0, 0, 0);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.dropDown:hover .dropDown-Content {
+    display: flex;
+}
+
+.link {
+    color: #000000;
+    font-size: 35px;
+    margin: 10px 0px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    width: 100%;
 }
 
 button {
-  padding: 15px;
-  font-size: 30px;
-  border-radius: 8px;
-  border: 0;
-  margin: 20px;
-  cursor: pointer;
+    height: auto;
+    padding: 15px;
+    margin: 20px;
+    font-size: 30px;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgba(127, 255, 212, 0.461);
 }
 
 button:active {
-  background-color: rgb(201, 201, 201);
-  transform: translateY(1.2px);
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transform: translateY(1.2px);
+}
+
+button:disabled {
+    background-color: lightgray;
+    color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+button:active:disabled {
+    background-color: lightgray;
+    color: gray;
+    transform: none;
 }
 
 h1 {
-  font-size: 90px;
-  margin-top: 20px;
+    font-size: 40px;
 }
