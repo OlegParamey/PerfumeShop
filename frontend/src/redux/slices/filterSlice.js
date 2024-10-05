@@ -43,6 +43,7 @@ const filterSlice = createSlice({
             state.sortBy = initialState.sortBy
             state.title = []
             state.brand = []
+            state.capacity = []
         },
     },
 })

@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import ProductIdentification from '../../utils/ProductIdentification'
+
+function ProductIdentification(obj, action) {
+    return (
+        obj.id === action.payload.id && obj.capacity === action.payload.capacity
+    )
+}
 
 const initialState = []
 

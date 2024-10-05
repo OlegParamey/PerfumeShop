@@ -30,7 +30,7 @@ function Filter({ filterList }) {
     }
 
     const handleSetFilterSortBy = (element) => {
-        dispatch(setSortBy(element))
+        // dispatch(setSortBy(element))
     }
     const handleResetFilter = () => {
         dispatch(resetFilter())
@@ -56,10 +56,10 @@ function Filter({ filterList }) {
                         <summary>Sort by</summary>
                         <ul>
                             <li onClick={() => handleSetFilterSortBy('')}>
-                                PRICE: LOW TO HIGH
+                                PRICE (LOW TO HIGH)
                             </li>
                             <li onClick={() => handleSetFilterSortBy('')}>
-                                PRICE: HIGH TO LOW
+                                PRICE (HIGH TO LOW)
                             </li>
                         </ul>
                     </details>
@@ -140,9 +140,9 @@ function Filter({ filterList }) {
                         </ul>
                     </details>
                 </section>
-                <footer className={styles.filterPanelFooter}>
+                {/* <footer className={styles.filterPanelFooter}>
                     <button>Filter</button>
-                </footer>
+                </footer> */}
             </nav>
         </div>
     )
