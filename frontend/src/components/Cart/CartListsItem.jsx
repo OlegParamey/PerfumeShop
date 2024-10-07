@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { useCallback, useEffect, useState } from 'react'
-import { setItemQuantity } from '../../redux/slices/cartSlice'
+import { setItemQuantity, deleteItem } from '../../redux/slices/cartSlice'
+import { IoTrashOutline } from 'react-icons/io5'
 import styles from './Cart.module.css'
 
 function CartListsItem({ data }) {
@@ -28,6 +29,10 @@ function CartListsItem({ data }) {
     const handleSelectChange = (e) => {
         dispatchQuantity(e.target.value)
         setLocalQuantity(e.target.value)
+    }
+
+    const handleRemoveItemByIdAndCapacity = (data) => {
+        dispatch(deleteItem(data))
     }
 
     return (
@@ -65,6 +70,17 @@ function CartListsItem({ data }) {
                         Pirce for one: {data.price}zł
                     </p>
                 </div>
+            </div>
+            <div
+                className={styles.deleteItemButton}
+                onClick={() =>
+                    handleRemoveItemByIdAndCapacity({
+                        id: data.id,
+                        capacity: data.capacity,
+                    })
+                }
+            >
+                <IoTrashOutline />
             </div>
         </div>
     )

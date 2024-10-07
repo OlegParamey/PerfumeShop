@@ -43,9 +43,19 @@ const cartSlice = createSlice({
                 }),
             ]
         },
+        deleteItem: (state, action) => {
+            return [
+                ...state.filter(
+                    (obj) =>
+                        obj.id !== action.payload.id ||
+                        obj.capacity !== action.payload.capacity
+                ),
+            ]
+        },
     },
 })
 
-export const { addPerfumeToCart, setItemQuantity } = cartSlice.actions
+export const { addPerfumeToCart, setItemQuantity, deleteItem } =
+    cartSlice.actions
 export const selectCartList = (state) => state.cartItems
 export default cartSlice.reducer

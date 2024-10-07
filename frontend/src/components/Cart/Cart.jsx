@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux'
 import { selectCartList } from '../../redux/slices/cartSlice'
-import styles from './Cart.module.css'
 import CartListsItem from './CartListsItem'
 import CartSummary from './CartSummary'
+import CartEmpty from './CartEmpty'
+import styles from './Cart.module.css'
 
 function Cart() {
     const cartList = useSelector(selectCartList)
@@ -15,15 +16,21 @@ function Cart() {
             <div className={styles.cartHeader}>
                 <h2>Cart</h2>
             </div>
-            <div className={styles.cartList}>
-                {cartList.length > 0 &&
-                    cartList.map((perfume) => (
-                        <CartListsItem
-                            data={perfume}
-                            key={`${perfume.productId}`}
-                        />
-                    ))}
-                {cartList.length > 0 && <CartSummary finalPrice={finalPrice} />}
+
+            <div className={styles.cartMain}>
+                {cartList.length > 0 ? (
+                    <div className={cartList.length > 0 ? styles.cartList : ''}>
+                        {cartList.map((perfume) => (
+                            <CartListsItem
+                                data={perfume}
+                                key={`${perfume.productId}`}
+                            />
+                        ))}
+                        <CartSummary finalPrice={finalPrice} />
+                    </div>
+                ) : (
+                    <CartEmpty />
+                )}
             </div>
         </>
     )

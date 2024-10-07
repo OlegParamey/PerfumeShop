@@ -111,14 +111,14 @@ li {
     text-overflow: ellipsis;
 }
 
-.active {
-    color: red;
-}
-
 li:last-child {
     border-bottom: 3px solid black;
 }
 
 li:hover {
     background-color: rgb(219, 219, 219);
+}
+
+.active {
+    color: red;
 }
