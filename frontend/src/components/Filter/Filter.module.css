@@ -11,7 +11,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    max-height: 100vh;
     display: flex;
     padding-top: 0;
     padding-bottom: 0;
@@ -121,4 +121,11 @@ li:hover {
 
 .active {
     color: red;
+}
+
+.filterFooter {
+    border-top: 3px solid black;
+    width: 285px;
+
+    background-color: white;
 }

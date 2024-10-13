@@ -1,5 +1,5 @@
 import { RxReset } from 'react-icons/rx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Filter.module.css'
 
 function Filter({ filterList, searchParams, setSearchParams }) {
@@ -8,6 +8,19 @@ function Filter({ filterList, searchParams, setSearchParams }) {
     const [selectedTitles, setSelectedTitles] = useState([])
     const [selectedCapacities, setSelectedCapacities] = useState([])
     const [sortOrder, setSortOrder] = useState('')
+
+    // Инициализация фильтров на основе параметров URL
+    useEffect(() => {
+        const brandParams = searchParams.get('brand')?.split(',') || []
+        const titleParams = searchParams.get('title')?.split(',') || []
+        const capacityParams = searchParams.get('capacity')?.split(',') || []
+        const sortParam = searchParams.get('sort') || ''
+
+        setSelectedBrands(brandParams)
+        setSelectedTitles(titleParams)
+        setSelectedCapacities(capacityParams)
+        setSortOrder(sortParam)
+    }, [searchParams])
 
     // Обработчик отправки формы
     const handleSubmitForm = (e) => {
@@ -61,20 +74,32 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                     </header>
 
                     <section className={styles.filterPanelBody}>
-                        {/* Сортировка */}
-                        <details>
+                        <details open>
                             <summary>Sort by</summary>
                             <ul>
-                                <li onClick={() => setSortOrder('lowToHigh')}>
+                                <li
+                                    onClick={() => setSortOrder('lowToHigh')}
+                                    className={
+                                        sortOrder === 'lowToHigh'
+                                            ? styles.active
+                                            : ''
+                                    }
+                                >
                                     PRICE (LOW TO HIGH)
                                 </li>
-                                <li onClick={() => setSortOrder('highToLow')}>
+                                <li
+                                    onClick={() => setSortOrder('highToLow')}
+                                    className={
+                                        sortOrder === 'highToLow'
+                                            ? styles.active
+                                            : ''
+                                    }
+                                >
                                     PRICE (HIGH TO LOW)
                                 </li>
                             </ul>
                         </details>
 
-                        {/* Фильтр по бренду */}
                         <details>
                             <summary>Brand</summary>
                             <ul>
@@ -100,7 +125,6 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                             </ul>
                         </details>
 
-                        {/* Фильтр по названию */}
                         <details>
                             <summary>Title</summary>
                             <ul>
@@ -126,7 +150,6 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                             </ul>
                         </details>
 
-                        {/* Фильтр по объему */}
                         <details>
                             <summary>Capacity</summary>
                             <ul>
@@ -152,7 +175,6 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                             </ul>
                         </details>
 
-                        {/* Фильтр по цене */}
                         <details>
                             <summary>Price range</summary>
                             <ul>
@@ -164,8 +186,9 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                             </ul>
                         </details>
                     </section>
-
-                    <button type="submit">Filter</button>
+                    <div className={styles.filterFooter}>
+                        <button type="submit">Filter</button>
+                    </div>
                 </nav>
             </form>
         </div>

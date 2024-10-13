@@ -155,11 +155,10 @@ footer {
 }
 
 button {
-    height: auto;
     padding: 15px;
-    margin: 20px;
+    margin: 10px 5px;
     font-size: 30px;
-    border-radius: 8px;
+    width: 250px;
     background-color: white;
     cursor: pointer;
 }
