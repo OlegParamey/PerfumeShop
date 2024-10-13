@@ -62,6 +62,7 @@
     scrollbar-width: none;
     overscroll-behavior: contain;
     height: 100%;
+    border-bottom: 3px solid black;
 }
 
 /* .filterPanelFooter {

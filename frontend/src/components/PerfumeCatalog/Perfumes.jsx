@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectPerfumes } from '../../redux/slices/perfumesSlice'
 import { selectFilterList, setPrice } from '../../redux/slices/filterSlice'
 import { useEffect, useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import CreateFilterList from '../../utils/CreateFilterList'
 import Filter from '../Filter/Filter'
 import PerfumeCard from './PerfumeCard'
 import styles from './Perfumes.module.css'
 
 function Perfumes() {
+    const [searchParams, setSearchParams] = useSearchParams()
     const perfumesData = useSelector(selectPerfumes)
     const filterData = useSelector(selectFilterList)
     const filterList = useMemo(
@@ -15,6 +17,19 @@ function Perfumes() {
         [perfumesData]
     )
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        const queryTitle =
+            searchParams.has('title') && searchParams.get('title').split(',')
+        console.log(queryTitle)
+        const queryBrand =
+            searchParams.has('brand') && searchParams.get('brand').split(',')
+        console.log(queryBrand)
+        const queryCapacity =
+            searchParams.has('capacity') &&
+            searchParams.get('capacity').split(',')
+        console.log(queryCapacity)
+    }, [searchParams])
 
     useEffect(() => {
         if (perfumesData.length > 0) {
@@ -63,7 +78,11 @@ function Perfumes() {
             </header>
             <main className={styles.perfumesMain}>
                 <div className={styles.perfumesLeftRow}>
-                    <Filter filterList={filterList} />
+                    <Filter
+                        filterList={filterList}
+                        searchParams={searchParams}
+                        setSearchParams={setSearchParams}
+                    />
                 </div>
 
                 <div className={styles.perfumesRightRow}>
