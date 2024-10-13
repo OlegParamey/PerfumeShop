@@ -1,16 +1,15 @@
 .cartDropDownItem {
     color: black;
     padding: 12px 16px;
+    box-sizing: border-box;
     border-bottom: 2px solid rgb(179, 179, 179);
     font-size: 20px;
-    min-width: 200px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     gap: 5px;
-    transition: 1.5s;
-    transition-timing-function: ease;
 }
 
 .optionData {
@@ -28,8 +27,6 @@
 
 .cartDropDownItem:hover {
     background-color: aquamarine;
-    width: 90%;
-    gap: 20px;
 }
 
 .cartHeader {
@@ -55,8 +52,11 @@
 .emptyCartText {
     position: absolute;
     text-align: start;
-    top: 40%;
+    top: 30%;
     left: 15%;
+}
+.emptyCartText > * {
+    margin: 15px 0;
 }
 
 .emptyCartButton {
@@ -196,18 +196,33 @@
 
 .deleteItemButton {
     position: absolute;
+    box-sizing: border-box;
     top: 10px;
     right: 10px;
     color: red;
     cursor: pointer;
-    width: 25px;
-    height: 25px;
-}
-.deleteItemButton > svg {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: transform 0.7s ease-out;
 }
 
+.deleteItemButton:hover {
+    transform: scale(1.4);
+}
+
+.deleteItemButton:active {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border: none;
+}
+
+.deleteItemButton > svg {
+    position: relative;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+}
 .cartSummary {
     color: white;
     height: 100px;

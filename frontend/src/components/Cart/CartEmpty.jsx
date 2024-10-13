@@ -11,7 +11,9 @@ function CartEmpty() {
                     to start now?
                 </h3>
                 <Link to="/perfumes" relative="path">
-                    <button className={styles.emptyCartButton}>Go back</button>
+                    <button className={styles.emptyCartButton}>
+                        Get started
+                    </button>
                 </Link>
             </div>
         </div>
