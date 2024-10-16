@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { setItemQuantity, deleteItem } from '../../redux/slices/cartSlice'
 import { IoTrashOutline } from 'react-icons/io5'
 import styles from './Cart.module.css'
+import { Link } from 'react-router-dom'
 
 function CartListsItem({ data }) {
     const dispatch = useDispatch()
@@ -56,9 +57,11 @@ function CartListsItem({ data }) {
                     <option value="10">10</option>
                 </select>
             </div>
-            <div className={styles.imgContainer}>
-                <img src={data.imgSrc} alt={data.brand} />
-            </div>
+            <Link to={`../perfumes/${data.id}`}>
+                <div className={styles.imgContainer}>
+                    <img src={data.imgSrc} alt={data.brand} />
+                </div>
+            </Link>
             <div className={styles.listItemInfoContainer}>
                 <div className={styles.itemTitle}>
                     <p>{data.title}</p>

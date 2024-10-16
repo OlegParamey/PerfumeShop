@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectPerfumes } from '../../redux/slices/perfumesSlice'
-import { setPrice } from '../../redux/slices/filterSlice'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import CreateFilterList from '../../utils/CreateFilterList'
 import Filter from '../Filter/Filter'
@@ -15,7 +14,6 @@ function Perfumes() {
         () => CreateFilterList(perfumesData),
         [perfumesData]
     )
-    const dispatch = useDispatch()
 
     const queryStringObj = useMemo(() => {
         return {
@@ -25,14 +23,6 @@ function Perfumes() {
         }
     }, [searchParams])
 
-    // Обновляем фильтр по цене
-    useEffect(() => {
-        if (perfumesData.length > 0) {
-            dispatch(setPrice(filterList))
-        }
-    }, [perfumesData, filterList, dispatch])
-
-    // Логика фильтрации духов
     const filteredPerfumes = useMemo(() => {
         return perfumesData.filter((perfume) => {
             const matchesTitle =
@@ -48,9 +38,7 @@ function Perfumes() {
             const matchesCapacity =
                 queryStringObj.queryCapacity.length === 0 ||
                 perfume.productInfo.some((obj) =>
-                    queryStringObj.queryCapacity.some((capacity) =>
-                        obj.capacity.includes(capacity)
-                    )
+                    queryStringObj.queryCapacity.includes(obj.capacity)
                 )
             return matchesTitle && matchesBrand && matchesCapacity
         })
