@@ -16,7 +16,7 @@ function Menu() {
                         className={({ isActive }) =>
                             isActive ? 'activeLink' : 'link'
                         }
-                        to="."
+                        to="home"
                         end
                     >
                         Home
@@ -51,13 +51,13 @@ function Menu() {
                     </NavLink>
                 </div>
                 <div className="rightIcons">
-                    <NavLink
-                        className={({ isActive }) =>
-                            isActive ? 'activeLink' : 'link'
-                        }
-                        to="cart"
-                    >
-                        <div className="dropDown">
+                    <div className="dropDown">
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? 'activeLink' : 'link'
+                            }
+                            to="cart"
+                        >
                             <div className="iconContainer">
                                 <BsCart4 />
                             </div>
@@ -66,20 +66,22 @@ function Menu() {
                                     {cartItemsList.length}
                                 </div>
                             )}
-                            <div className="dropDown-Content">
-                                {cartItemsList.length > 0 ? (
-                                    cartItemsList.map((obj) => (
-                                        <CartDropDownItemsList
-                                            itemData={obj}
-                                            key={`${obj.productId}`}
-                                        />
-                                    ))
-                                ) : (
-                                    <p>Cart is empty.</p>
-                                )}
-                            </div>
+                        </NavLink>
+                        <div className="dropDown-Content">
+                            {cartItemsList.length > 0 ? (
+                                cartItemsList.map((obj) => (
+                                    <CartDropDownItemsList
+                                        itemData={obj}
+                                        key={obj.productId}
+                                    />
+                                ))
+                            ) : (
+                                <p style={{ fontWeight: 350 }}>
+                                    Cart is empty.
+                                </p>
+                            )}
                         </div>
-                    </NavLink>
+                    </div>
                     {/* <NavLink
                     // className={({ isActive }) =>
                     //     isActive ? 'activeLink' : 'link'

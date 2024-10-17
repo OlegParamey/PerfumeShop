@@ -12,6 +12,10 @@
     width: 100%;
     padding: 10px 0px;
     margin: 10px 0px;
+    padding-left: 25px;
+    text-align: start;
+    box-sizing: border-box;
+    letter-spacing: 0.35rem;
 }
 
 .perfumesMain {
@@ -37,6 +41,12 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 15px;
     margin-right: 10px;
+}
+
+.noMatchesMessage {
+    position: absolute;
+    right: 25%;
+    left: 25%;
 }
 
 .perfumesBlock {

@@ -39,7 +39,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<MainLayout />}>
-                    <Route index element={<Home />}></Route>
+                    <Route path="/home" index element={<Home />}></Route>
                     <Route path="perfumes" element={<Perfumes />}></Route>
                     <Route
                         path="perfumes/:slug"
