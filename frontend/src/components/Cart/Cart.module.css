@@ -7,13 +7,14 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 5px;
 }
 
 .optionData {
     display: grid;
+    margin: auto;
 }
 
 .cartDropDownItem > img {
@@ -38,8 +39,11 @@
 
 .cartMain {
     position: relative;
+    display: flex;
     min-height: 75.5vh;
+    justify-content: space-evenly;
     width: 100%;
+    flex-grow: 1; /* Позволяем контейнеру занимать всю доступную высоту */
 }
 
 .emptyCartMain {
@@ -87,11 +91,8 @@
     color: rgb(179, 179, 179);
 }
 
-/* .emptyCartText > h3,
-.emptyCartText > h1 {
-} */
-
 .cartList {
+    background-color: white;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -99,7 +100,9 @@
     border-radius: 10px;
     box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
     margin: 25px;
-    max-width: 700px;
+    min-width: 650px;
+    flex-grow: 1; /* Растягиваем контейнер */
+    min-height: 0; /* Избегаем создания лишнего пространства */
 }
 
 .listItem {
@@ -110,6 +113,7 @@
     background-color: white;
     border: 1px solid black;
     height: 250px;
+    flex-grow: 2;
 }
 
 .listItem:first-child {
@@ -127,11 +131,10 @@
 .listItem:last-child {
     border-bottom: none;
 }
-/* //////////////////////////////////////////////////////////////// */
+
 .selectQuantityMenu {
     border-radius: 5px;
 }
-/* //////////////////////////////////////////////////////////////// */
 
 .imgContainer {
     height: 100%;
@@ -151,9 +154,10 @@
     background-color: aquamarine;
     width: 50px;
     height: 100%;
-    display: flex; /* Use flexbox to stretch the content */
-    align-items: center; /* Center the content vertically */
+    display: flex;
+    align-items: center;
     justify-content: center;
+    flex-grow: 1; /* Заставляем контейнер растягиваться */
 }
 
 .itemTitle {
@@ -170,6 +174,7 @@
     height: 100%;
     color: #000;
     background-color: #fff;
+    flex-grow: 1; /* Растягиваем элемент */
 }
 
 .itemCapacityPrice {
@@ -182,6 +187,7 @@
 .itemCapacityPrice > * {
     font-style: italic;
 }
+
 .priceForOne {
     display: block;
     position: absolute;
@@ -223,16 +229,18 @@
     width: 25px;
     height: 25px;
 }
+
 .cartSummary {
     color: white;
-    height: 100px;
     background-color: black;
     box-sizing: border-box;
     border-radius: 0px 0px 10px 10px;
+    flex-grow: 1; /* Заставляем контейнер растягиваться */
 }
+
 .cartSummary > p {
     font-size: 50px;
-    margin: 17px;
+    margin: 20px;
 }
 .cartSummary > p > strong {
     color: white;

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import CreatePerfumeCardWithID from './utils/CreatePerfumeCardWithID'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { getPerfumeList } from './redux/slices/perfumesSlice'
 import MainLayout from './layouts/MainLayout'
@@ -11,8 +11,9 @@ import About from './components/About/About'
 import Contacts from './components/Contacts/Contacts'
 import NotFound from './components/NotFound/NotFound'
 import Cart from './components/Cart/Cart'
+import PaymentMenu from './components/Cart/DeliveryAndPayment/Payment/PaymentMenu'
+import CreatePerfumeCardWithID from './utils/CreatePerfumeCardWithID'
 import './App.css'
-import { useDispatch } from 'react-redux'
 
 function App() {
     const dispatch = useDispatch()
@@ -39,7 +40,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<MainLayout />}>
-                    <Route path="/home" index element={<Home />}></Route>
+                    <Route path="/" index element={<Home />}></Route>
                     <Route path="perfumes" element={<Perfumes />}></Route>
                     <Route
                         path="perfumes/:slug"
@@ -48,6 +49,11 @@ function App() {
                     <Route path="about" element={<About />}></Route>
                     <Route path="contacts" element={<Contacts />}></Route>
                     <Route path="cart" element={<Cart />}></Route>
+                    <Route
+                        path="cart/payment"
+                        element={<PaymentMenu />}
+                    ></Route>
+
                     <Route path="*" element={<NotFound />}></Route>
                 </Route>
             </Routes>

@@ -1,0 +1,19 @@
+.paymentMenu {
+    background-color: #e600e6;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
+    margin: 25px 10px;
+    min-width: 460px;
+    min-height: 400px;
+}
+
+.methodContainer {
+    margin: 60px 10px;
+    background-color: white;
+}
+
+.methodPaymentCard {
+    width: 100%;
+}
