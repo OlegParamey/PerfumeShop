@@ -74,7 +74,7 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                     </header>
 
                     <section className={styles.filterPanelBody}>
-                        <details open>
+                        <details>
                             <summary>Sort by</summary>
                             <ul>
                                 <li
@@ -118,6 +118,7 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                                                 ? styles.active
                                                 : ''
                                         }
+                                        title={element}
                                     >
                                         {element}
                                     </li>
@@ -143,6 +144,7 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                                                 ? styles.active
                                                 : ''
                                         }
+                                        title={element}
                                     >
                                         {element}
                                     </li>
@@ -168,6 +170,7 @@ function Filter({ filterList, searchParams, setSearchParams }) {
                                                 ? styles.active
                                                 : ''
                                         }
+                                        title={element}
                                     >
                                         {element}
                                     </li>

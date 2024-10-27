@@ -1,5 +1,8 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import InputCheckBox from './InputCheckBox'
+import { setDeliveryData } from '../../../../redux/slices/deliveryDataSlice'
 import styles from './Delivery.module.css'
 
 function DeliveryInfoForm() {
@@ -7,12 +10,43 @@ function DeliveryInfoForm() {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
-    const [adress, setAdress] = useState('')
+    const [address, setAddress] = useState('')
     const [optionalDdata, setOptionalDdata] = useState('')
     const [zipCode, setZipCode] = useState('')
     const [city, setCity] = useState('')
 
+    const [paymentCart, setPaymentCart] = useState(false)
+    const [blik, setBlik] = useState(false)
+    const [googlePay, setGooglePay] = useState(false)
+    const [giftCard, setGiftCard] = useState(false)
+
+    const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const isFormValid = useMemo(
+        () =>
+            email &&
+            phoneNumber &&
+            name &&
+            surname &&
+            address &&
+            zipCode &&
+            city &&
+            (paymentCart || blik || googlePay || giftCard),
+        [
+            email,
+            phoneNumber,
+            name,
+            surname,
+            address,
+            zipCode,
+            city,
+            paymentCart,
+            blik,
+            googlePay,
+            giftCard,
+        ]
+    )
 
     const handleSubmitForm = (e) => {
         e.preventDefault()
@@ -21,28 +55,22 @@ function DeliveryInfoForm() {
             phoneNumber,
             name,
             surname,
-            adress,
+            address,
             optionalDdata,
             zipCode,
             city,
+            paymentCart,
+            blik,
+            googlePay,
+            giftCard,
         }
-        console.log(deliveryData)
+        dispatch(setDeliveryData(deliveryData))
         handleGoToPayment()
         // здесь можно добавить логику отправки формы
     }
     const handleGoToPayment = () => {
         navigate('/cart/payment')
     }
-
-    const isFormValid =
-        email &&
-        phoneNumber &&
-        name &&
-        surname &&
-        adress &&
-        optionalDdata &&
-        zipCode &&
-        city
 
     return (
         <div className={styles.deliveryForm}>
@@ -59,7 +87,7 @@ function DeliveryInfoForm() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder=" "
-                            autoComplete="off"
+                            autoComplete="on"
                             required
                         />
                         <label htmlFor="email">Email</label>
@@ -71,8 +99,8 @@ function DeliveryInfoForm() {
                             name="phoneNumber"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
-                            placeholder=" "
-                            autoComplete="off"
+                            placeholder=""
+                            autoComplete="on"
                             required
                         />
                         <label htmlFor="phoneNumber">Phone number</label>
@@ -87,7 +115,7 @@ function DeliveryInfoForm() {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder=" "
-                            autoComplete="off"
+                            autoComplete="on"
                             required
                         />
                         <label htmlFor="name">Name</label>
@@ -100,7 +128,7 @@ function DeliveryInfoForm() {
                             value={surname}
                             onChange={(e) => setSurname(e.target.value)}
                             placeholder=" "
-                            autoComplete="off"
+                            autoComplete="on"
                             required
                         />
                         <label htmlFor="surname">Surname</label>
@@ -113,10 +141,10 @@ function DeliveryInfoForm() {
                             type="text"
                             id="adress"
                             name="adress"
-                            value={adress}
-                            onChange={(e) => setAdress(e.target.value)}
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
                             placeholder=" "
-                            autoComplete="off"
+                            autoComplete="on"
                             required
                         />
                         <label className={styles.longLabel} htmlFor="adress">
@@ -134,9 +162,8 @@ function DeliveryInfoForm() {
                             name="optionalDdata"
                             value={optionalDdata}
                             onChange={(e) => setOptionalDdata(e.target.value)}
+                            autoComplete="on"
                             placeholder=" "
-                            autoComplete="off"
-                            required
                         />
                         <label
                             className={styles.longLabel}
@@ -155,7 +182,7 @@ function DeliveryInfoForm() {
                             value={zipCode}
                             onChange={(e) => setZipCode(e.target.value)}
                             placeholder=" "
-                            autoComplete="off"
+                            autoComplete="on"
                             required
                         />
                         <label htmlFor="zipCode">Zip Code</label>
@@ -168,12 +195,18 @@ function DeliveryInfoForm() {
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
                             placeholder=" "
-                            autoComplete="off"
+                            autoComplete="on"
                             required
                         />
                         <label htmlFor="city">City</label>
                     </div>
                 </div>
+                <InputCheckBox
+                    setPaymentCart={setPaymentCart}
+                    setBlik={setBlik}
+                    setGooglePay={setGooglePay}
+                    setGiftCard={setGiftCard}
+                />
                 <div className={styles.buttonContainer}>
                     <button
                         type="submit"

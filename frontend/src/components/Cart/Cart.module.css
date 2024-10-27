@@ -28,6 +28,11 @@
 
 .cartDropDownItem:hover {
     background-color: aquamarine;
+    cursor: pointer;
+}
+
+.cartDropDownItem:active {
+    background-color: rgba(127, 255, 212, 0.461);
 }
 
 .cartHeader {
@@ -101,6 +106,7 @@
     box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
     margin: 25px;
     min-width: 650px;
+    height: fit-content;
     flex-grow: 1; /* Растягиваем контейнер */
     min-height: 0; /* Избегаем создания лишнего пространства */
 }
@@ -113,6 +119,7 @@
     background-color: white;
     border: 1px solid black;
     height: 250px;
+    max-height: 300px;
     flex-grow: 2;
 }
 
@@ -235,7 +242,6 @@
     background-color: black;
     box-sizing: border-box;
     border-radius: 0px 0px 10px 10px;
-    flex-grow: 1; /* Заставляем контейнер растягиваться */
 }
 
 .cartSummary > p {
