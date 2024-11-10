@@ -1,27 +1,39 @@
 import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import InputCheckBox from './InputCheckBox'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectDeliveryData } from '../../../../redux/slices/deliveryDataSlice'
 import { setDeliveryData } from '../../../../redux/slices/deliveryDataSlice'
+import InputCheckBox from './InputCheckBox'
 import styles from './Delivery.module.css'
 
 function DeliveryInfoForm() {
-    const [email, setEmail] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [name, setName] = useState('')
-    const [surname, setSurname] = useState('')
-    const [address, setAddress] = useState('')
-    const [optionalDdata, setOptionalDdata] = useState('')
-    const [zipCode, setZipCode] = useState('')
-    const [city, setCity] = useState('')
+    const handleGoToPayment = () => {
+        navigate('/cart/payment')
+    }
 
-    const [paymentCart, setPaymentCart] = useState(false)
-    const [blik, setBlik] = useState(false)
-    const [googlePay, setGooglePay] = useState(false)
-    const [giftCard, setGiftCard] = useState(false)
+    const deliveryData = useSelector(selectDeliveryData)
+
+    const [email, setEmail] = useState(deliveryData.email)
+    const [phoneNumber, setPhoneNumber] = useState(deliveryData.phoneNumber)
+    const [name, setName] = useState(deliveryData.name)
+    const [surname, setSurname] = useState(deliveryData.surname)
+    const [address, setAddress] = useState(deliveryData.address)
+    const [optionalDdata, setOptionalDdata] = useState(
+        deliveryData.optionalDdata
+    )
+    const [zipCode, setZipCode] = useState(deliveryData.zipCode)
+    const [city, setCity] = useState(deliveryData.city)
+
+    const [paymentCard, setPaymentCard] = useState(deliveryData.paymentCard)
+    const [blik, setBlik] = useState(deliveryData.blik)
+    const [googlePay, setGooglePay] = useState(deliveryData.googlePay)
+    const [giftCard, setGiftCard] = useState(deliveryData.giftCard)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const inputSpaceRemover = (e) =>
+        (e.target.value = e.target.value.replace(/ /g, ''))
 
     const isFormValid = useMemo(
         () =>
@@ -32,7 +44,7 @@ function DeliveryInfoForm() {
             address &&
             zipCode &&
             city &&
-            (paymentCart || blik || googlePay || giftCard),
+            (paymentCard || blik || googlePay || giftCard),
         [
             email,
             phoneNumber,
@@ -41,7 +53,7 @@ function DeliveryInfoForm() {
             address,
             zipCode,
             city,
-            paymentCart,
+            paymentCard,
             blik,
             googlePay,
             giftCard,
@@ -50,26 +62,25 @@ function DeliveryInfoForm() {
 
     const handleSubmitForm = (e) => {
         e.preventDefault()
-        const deliveryData = {
-            email,
-            phoneNumber,
-            name,
-            surname,
-            address,
-            optionalDdata,
-            zipCode,
-            city,
-            paymentCart,
-            blik,
-            googlePay,
-            giftCard,
-        }
-        dispatch(setDeliveryData(deliveryData))
+
+        dispatch(
+            setDeliveryData({
+                email,
+                phoneNumber,
+                name,
+                surname,
+                address,
+                optionalDdata,
+                zipCode,
+                city,
+                paymentCard,
+                blik,
+                googlePay,
+                giftCard,
+            })
+        )
         handleGoToPayment()
         // здесь можно добавить логику отправки формы
-    }
-    const handleGoToPayment = () => {
-        navigate('/cart/payment')
     }
 
     return (
@@ -81,6 +92,7 @@ function DeliveryInfoForm() {
                 <div className={styles.deliveryFormInputsContainer}>
                     <div className={styles.deliveryFormInput}>
                         <input
+                            onInput={(e) => inputSpaceRemover(e)}
                             type="email"
                             id="email"
                             name="email"
@@ -94,6 +106,7 @@ function DeliveryInfoForm() {
                     </div>
                     <div className={styles.deliveryFormInput}>
                         <input
+                            onInput={(e) => inputSpaceRemover(e)}
                             type="tel"
                             id="phoneNumber" // Добавляем id
                             name="phoneNumber"
@@ -139,15 +152,15 @@ function DeliveryInfoForm() {
                         <input
                             className={styles.longInput}
                             type="text"
-                            id="adress"
-                            name="adress"
+                            id="address"
+                            name="address"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                             placeholder=" "
                             autoComplete="on"
                             required
                         />
-                        <label className={styles.longLabel} htmlFor="adress">
+                        <label className={styles.longLabel} htmlFor="address">
                             Adress
                         </label>
                     </div>
@@ -176,6 +189,7 @@ function DeliveryInfoForm() {
                 <div className={styles.deliveryFormInputsContainer}>
                     <div className={styles.deliveryFormInput}>
                         <input
+                            onInput={(e) => inputSpaceRemover(e)}
                             type="text"
                             id="zipCode"
                             name="zipCode"
@@ -202,10 +216,14 @@ function DeliveryInfoForm() {
                     </div>
                 </div>
                 <InputCheckBox
-                    setPaymentCart={setPaymentCart}
+                    setPaymentCard={setPaymentCard}
                     setBlik={setBlik}
                     setGooglePay={setGooglePay}
                     setGiftCard={setGiftCard}
+                    paymentCard={paymentCard}
+                    blik={blik}
+                    googlePay={googlePay}
+                    giftCard={giftCard}
                 />
                 <div className={styles.buttonContainer}>
                     <button

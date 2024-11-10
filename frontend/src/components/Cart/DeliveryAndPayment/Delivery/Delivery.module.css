@@ -2,7 +2,7 @@
     margin: 25px 10px;
     border: 2px solid rgb(122, 122, 122);
     min-width: 270px;
-    border-radius: 5px;
+    max-height: 965px;
     background-color: white;
     box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
     flex-grow: 1;
@@ -80,20 +80,6 @@
 
 .buttonContainer {
     position: relative;
-}
-
-.paymentButton {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.paymentButton:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
 }
 
 @media (max-width: 600px) {

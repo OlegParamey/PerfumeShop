@@ -1,19 +1,94 @@
 .paymentMenu {
-    background-color: #e600e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     box-sizing: border-box;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
-    margin: 25px 10px;
     min-width: 460px;
     min-height: 400px;
+    margin: 25px 10px;
+    padding: 5px;
+    gap: 25px;
 }
 
 .methodContainer {
-    margin: 60px 10px;
     background-color: white;
+    flex: 1 1;
+    position: sticky;
+    top: 15px;
 }
 
 .methodPaymentCard {
     width: 100%;
+}
+
+.infoContainer {
+    box-shadow: 6px 6px 9px 2px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
+    border: 1px solid rgb(111, 111, 111);
+    background-color: white;
+    flex: 1.5;
+}
+
+.itemInfo {
+    margin: 20px 20px 0 0;
+    width: 100%;
+}
+
+.itemInfo h3 {
+    font-weight: 400;
+    text-align: center;
+}
+
+.group {
+    margin: 20px;
+    border: 1px solid black;
+    text-align: start;
+    padding: 5px;
+}
+.groupInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 20px 0;
+    border-bottom: 2.3px solid rgb(116, 116, 116);
+}
+
+.itemListContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 1px solid black;
+    text-align: start;
+}
+
+.item {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.item:last-child {
+    border: none;
+}
+
+.imgContainer > img {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid rgb(82, 82, 82);
+    margin: 25px;
+    max-width: 150px;
+    max-height: 150px;
+    transition: 0.3s;
+}
+
+.imgContainer > img:hover {
+    box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
+    transform: scale(1.01) skew(1.5deg, -1.5deg);
+    background-color: #f9f9f9;
+    border: 1px solid rgb(107, 107, 107);
+}
+.imgContainer > img:active {
+    transform: scale(1) skew(1.5deg, -1.5deg);
+    border: 1px solid rgb(255, 52, 52);
 }
