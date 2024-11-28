@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi'
 import styles from './Cart.module.css'
 
 function CartEmpty() {
@@ -13,6 +14,9 @@ function CartEmpty() {
                 <Link to="/perfumes" relative="path">
                     <button className={styles.emptyCartButton}>
                         Get started
+                        <span className={styles.arrow}>
+                            <HiOutlineArrowNarrowRight />
+                        </span>
                     </button>
                 </Link>
             </div>

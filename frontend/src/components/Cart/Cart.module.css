@@ -95,6 +95,11 @@
     background-color: #000;
     color: rgb(179, 179, 179);
 }
+.arrow {
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
 
 .cartList {
     background-color: white;
@@ -102,6 +107,7 @@
     flex-direction: column;
     box-sizing: border-box;
     box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
+    border: 1px solid black;
     margin: 25px;
     min-width: 650px;
     height: fit-content;
@@ -115,7 +121,7 @@
     flex-direction: row;
     align-items: center;
     background-color: white;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     height: 250px;
     max-height: 300px;
     flex-grow: 2;
@@ -174,20 +180,15 @@
 
 .itemCount {
     color: #000;
-    background-color: black;
+    background-color: #00adb5;
     width: 50px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    /* border-bottom: 1px solid white; */
+    border-right: 1px solid black;
 }
-/* 
-.listItem:last-child > div.itemCount {
-    border-bottom: 1px solid black;
-    background-color: #e600e6;
-} */
 
 .itemTitle {
     font-size: 20px;
@@ -216,16 +217,18 @@
 .itemCapacityPrice > * {
     font-style: italic;
 }
+.priceContainer {
+    position: relative;
+}
 
-.priceForOne {
+.priceText {
     display: block;
     position: absolute;
     font-size: 15px;
     font-style: italic;
-    font-weight: bold;
-    color: #e600e6;
-    border-bottom: 2px solid #e600e6;
-    right: 8%;
+    font-weight: 500;
+    right: 0;
+    color: #393e4680;
     top: 45px;
 }
 
@@ -266,12 +269,10 @@
     background-color: white;
     display: flex;
     box-sizing: border-box;
-    /* border-radius: 0px 0px 10px 10px; */
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    /* margin: 10px; */
+    /* border-bottom: 1px solid black; */
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;

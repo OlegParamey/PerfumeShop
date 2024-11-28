@@ -1,10 +1,7 @@
-import { useSelector } from 'react-redux'
-import { selectCartList } from '../../../../redux/slices/cartSlice'
+import CartSummary from '../../CartSummary'
 import styles from './Payment.module.css'
 
-function PaymentListItem() {
-    const itemsList = useSelector(selectCartList)
-
+function PaymentListItems({ itemsList, finalPrice }) {
     return (
         <>
             {itemsList &&
@@ -40,8 +37,9 @@ function PaymentListItem() {
                         </div>
                     )
                 })}
+            <CartSummary finalPrice={finalPrice} />
         </>
     )
 }
 
-export default PaymentListItem
+export default PaymentListItems

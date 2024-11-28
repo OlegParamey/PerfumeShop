@@ -53,3 +53,18 @@
 .btn:hover {
     background-color: #45a049;
 }
+
+.inputBlik {
+    width: min-content;
+    font-size: 36px;
+    letter-spacing: 6px;
+    text-align: center;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 5px;
+    width: 100%;
+}
