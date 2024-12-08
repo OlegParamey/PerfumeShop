@@ -3,14 +3,18 @@ import { selectCartList } from '../../redux/slices/cartSlice'
 import CartListsItem from './CartListsItem'
 import CartSummary from './CartSummary'
 import CartEmpty from './CartEmpty'
+import DeliveryInfoForm from './DeliveryAndPayment/Delivery/DeliveryInfoForm'
 import styles from './Cart.module.css'
 
 function Cart() {
     const cartList = useSelector(selectCartList)
-    const finalPrice = cartList.reduce(
-        (accumulator, perfume) => accumulator + +perfume.subtotal,
-        0
-    )
+    const finalPrice = Number(
+        cartList.reduce(
+            (accumulator, perfume) => accumulator + +perfume.subtotal,
+            0
+        )
+    ).toFixed(2)
+
     return (
         <>
             <div className={styles.cartHeader}>
@@ -19,15 +23,22 @@ function Cart() {
 
             <div className={styles.cartMain}>
                 {cartList.length > 0 ? (
-                    <div className={cartList.length > 0 ? styles.cartList : ''}>
-                        {cartList.map((perfume) => (
-                            <CartListsItem
-                                data={perfume}
-                                key={`${perfume.productId}`}
-                            />
-                        ))}
-                        <CartSummary finalPrice={finalPrice} />
-                    </div>
+                    <>
+                        <div
+                            className={
+                                cartList.length > 0 ? styles.cartList : ''
+                            }
+                        >
+                            {cartList.map((perfume) => (
+                                <CartListsItem
+                                    data={perfume}
+                                    key={`${perfume.productId}`}
+                                />
+                            ))}
+                            <CartSummary finalPrice={finalPrice} />
+                        </div>
+                        <DeliveryInfoForm />
+                    </>
                 ) : (
                     <CartEmpty />
                 )}

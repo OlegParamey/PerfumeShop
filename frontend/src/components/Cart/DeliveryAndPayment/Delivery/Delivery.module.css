@@ -1,0 +1,89 @@
+.deliveryForm {
+    margin: 25px 10px;
+    border: 2px solid rgb(122, 122, 122);
+    min-width: 270px;
+    max-height: 965px;
+    background-color: white;
+    box-shadow: 11px 11px 11px 0px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
+    flex-grow: 1;
+    position: relative;
+}
+
+.deliveryForm form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.deliveryFormHeader {
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    margin-bottom: 5px;
+}
+
+.deliveryFormInput {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.deliveryFormInputsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0 20px;
+    gap: 20px;
+}
+
+.deliveryFormInput input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: calc(100% - 62px);
+}
+
+.longInput {
+    width: calc(
+        100% - 40px
+    ) !important; /* Ensure the input takes the full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin: 0 20px;
+    flex: 1;
+}
+
+.deliveryFormInput input:focus {
+    border-color: #4caf50;
+}
+
+.deliveryFormInput label {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+}
+
+.deliveryFormInput input:focus + label,
+.deliveryFormInput input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #4caf50;
+}
+
+.buttonContainer {
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .deliveryFormInputsContainer {
+        flex-direction: column;
+    }
+}

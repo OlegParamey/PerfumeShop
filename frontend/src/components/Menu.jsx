@@ -16,7 +16,7 @@ function Menu() {
                         className={({ isActive }) =>
                             isActive ? 'activeLink' : 'link'
                         }
-                        to="home"
+                        to="./"
                         end
                     >
                         Home

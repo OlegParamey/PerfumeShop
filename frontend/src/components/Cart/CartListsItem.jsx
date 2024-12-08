@@ -68,10 +68,12 @@ function CartListsItem({ data }) {
                 </div>
                 <div className={styles.itemCapacityPrice}>
                     <strong>{data.capacity} ml</strong>
-                    <strong>{data.subtotal}.00 zł</strong>
-                    <p className={styles.priceForOne}>
-                        Pirce for one: {data.price}zł
-                    </p>
+                    <div className={styles.priceContainer}>
+                        <strong>{data.subtotal} zł</strong>
+                        <p className={styles.priceText}>
+                            Price per one {data.price}zł
+                        </p>
+                    </div>
                 </div>
             </div>
             <div

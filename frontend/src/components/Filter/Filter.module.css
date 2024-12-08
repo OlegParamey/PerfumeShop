@@ -45,6 +45,9 @@
     cursor: pointer;
 }
 
+.resetIcon:hover {
+    color: rgb(186, 186, 186);
+}
 .resetIcon:active {
     color: rgb(255, 73, 73);
 }
@@ -98,7 +101,11 @@ summary {
 }
 
 summary:hover {
-    background-color: rgba(127, 255, 212, 0.461);
+    background-color: rgba(212, 212, 212, 0.61);
+}
+summary:active {
+    background-color: rgb(165, 165, 165);
+    color: white;
 }
 
 li {
