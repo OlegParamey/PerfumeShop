@@ -8,10 +8,12 @@ import styles from './Cart.module.css'
 
 function Cart() {
     const cartList = useSelector(selectCartList)
-    const finalPrice = cartList.reduce(
-        (accumulator, perfume) => accumulator + +perfume.subtotal,
-        0
-    )
+    const finalPrice = Number(
+        cartList.reduce(
+            (accumulator, perfume) => accumulator + +perfume.subtotal,
+            0
+        )
+    ).toFixed(2)
 
     return (
         <>

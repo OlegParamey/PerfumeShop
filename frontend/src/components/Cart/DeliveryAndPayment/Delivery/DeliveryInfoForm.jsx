@@ -7,8 +7,8 @@ import InputCheckBox from './InputCheckBox'
 import styles from './Delivery.module.css'
 
 function DeliveryInfoForm() {
-    const handleGoToPayment = () => {
-        navigate('/cart/payment')
+    const handleGoTocheckout = () => {
+        navigate('/cart/checkout')
     }
 
     const deliveryData = useSelector(selectDeliveryData)
@@ -79,7 +79,7 @@ function DeliveryInfoForm() {
                 giftCard,
             })
         )
-        handleGoToPayment()
+        handleGoTocheckout()
         // здесь можно добавить логику отправки формы
     }
 
@@ -231,7 +231,7 @@ function DeliveryInfoForm() {
                         disabled={!isFormValid}
                         className={styles.paymentButton}
                     >
-                        Proceed to Payment
+                        Proceed to Checkout
                     </button>
                 </div>
             </form>

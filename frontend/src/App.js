@@ -14,6 +14,7 @@ import Cart from './components/Cart/Cart'
 import PaymentMenu from './components/Cart/DeliveryAndPayment/Payment/PaymentMenu'
 import CreatePerfumeCardWithID from './utils/CreatePerfumeCardWithID'
 import './App.css'
+import Completion from './components/Completion/Completion'
 
 function App() {
     const dispatch = useDispatch()
@@ -50,9 +51,10 @@ function App() {
                     <Route path="contacts" element={<Contacts />}></Route>
                     <Route path="cart" element={<Cart />}></Route>
                     <Route
-                        path="cart/payment"
+                        path="cart/checkout"
                         element={<PaymentMenu />}
                     ></Route>
+                    <Route path="/completion" element={<Completion />}></Route>
 
                     <Route path="*" element={<NotFound />}></Route>
                 </Route>

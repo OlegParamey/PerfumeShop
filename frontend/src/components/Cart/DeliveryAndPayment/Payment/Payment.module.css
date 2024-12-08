@@ -21,6 +21,12 @@
     width: 100%;
 }
 
+.payment_form_container {
+    padding: 10px;
+    box-shadow: 6px 6px 9px 2px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
+    border: 1px solid rgb(111, 111, 111);
+}
+
 .infoContainer {
     box-shadow: 6px 6px 9px 2px rgba(0, 0, 0, 0.1), -7px -7px 6px white;
     border: 1px solid rgb(111, 111, 111);
@@ -112,4 +118,25 @@
     cursor: pointer;
     color: rgb(255, 125, 151);
     transform: scale(0.95);
+}
+
+.division {
+    margin: 10px 0 20px 0;
+    display: flex; /* Enables flexbox for the container */
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between; /* Spaces items across the container */
+}
+.division::after {
+    content: ''; /* Use an empty content for styling */
+    flex-grow: 1; /* Makes the pseudo-element take up remaining space */
+    height: 1.5px; /* Thickness of the line */
+    background-color: black; /* Line color */
+    margin-left: 10px; /* Optional spacing between text and line */
+}
+.division::before {
+    content: ''; /* Use an empty content for styling */
+    flex-grow: 1; /* Makes the pseudo-element take up remaining space */
+    height: 1.5px; /* Thickness of the line */
+    background-color: black; /* Line color */
+    margin-right: 10px; /* Optional spacing between text and line */
 }

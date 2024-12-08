@@ -7,7 +7,6 @@ function MethodGooglePay({ finalPrice }) {
     const formattedPrice = parseFloat(finalPrice).toFixed(2)
     return (
         <div className={styles.credit_card_form}>
-            <h2>Paying with Google Pay</h2>
             {/* <div>
                 <img
                     src="/icons/google-pay.svg"
