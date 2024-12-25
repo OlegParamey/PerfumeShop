@@ -1,20 +1,15 @@
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import GooglePayButton from '@google-pay/button-react'
+import { resetCart } from '../../../../../redux/slices/cartSlice'
 import styles from './Methods.module.css'
+import { useDispatch } from 'react-redux'
 
 function MethodGooglePay({ finalPrice }) {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const formattedPrice = parseFloat(finalPrice).toFixed(2)
     return (
         <div className={styles.credit_card_form}>
-            {/* <div>
-                <img
-                    src="/icons/google-pay.svg"
-                    alt="Google Pay"
-                    width="100px"
-                ></img>
-            </div> */}
-
             <GooglePayButton
                 environment="TEST"
                 paymentRequest={{
@@ -60,7 +55,8 @@ function MethodGooglePay({ finalPrice }) {
                     console.log('load payment data', paymentRequest)
                     //Добавить уведомления для успешного завершения транзакции
                     //!!!!!!!
-                    //navigate('/') можно сюда добавить переадрисацию на страницу благодарности за покупку
+                    dispatch(resetCart())
+                    navigate('/completion')
                 }}
             />
         </div>

@@ -10,11 +10,12 @@ import SinglePerfume from './components/PerfumeCatalog/SinglePerfume/SinglePerfu
 import About from './components/About/About'
 import Contacts from './components/Contacts/Contacts'
 import NotFound from './components/NotFound/NotFound'
-import Cart from './components/Cart/Cart'
 import PaymentMenu from './components/Cart/DeliveryAndPayment/Payment/PaymentMenu'
+import DeliveryInfoForm from './components/Cart/DeliveryAndPayment/Delivery/DeliveryInfoForm'
 import CreatePerfumeCardWithID from './utils/CreatePerfumeCardWithID'
 import './App.css'
 import Completion from './components/Completion/Completion'
+import CartLayout from './layouts/CartLayout'
 
 function App() {
     const dispatch = useDispatch()
@@ -49,12 +50,14 @@ function App() {
                     ></Route>
                     <Route path="about" element={<About />}></Route>
                     <Route path="contacts" element={<Contacts />}></Route>
-                    <Route path="cart" element={<Cart />}></Route>
-                    <Route
-                        path="cart/checkout"
-                        element={<PaymentMenu />}
-                    ></Route>
-                    <Route path="/completion" element={<Completion />}></Route>
+                    <Route path="cart" element={<CartLayout />}>
+                        <Route index element={<DeliveryInfoForm />}></Route>
+                        <Route
+                            path="checkout"
+                            element={<PaymentMenu />}
+                        ></Route>
+                    </Route>
+                    <Route path="completion" element={<Completion />}></Route>
 
                     <Route path="*" element={<NotFound />}></Route>
                 </Route>

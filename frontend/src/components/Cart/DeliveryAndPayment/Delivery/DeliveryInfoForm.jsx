@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectDeliveryData } from '../../../../redux/slices/deliveryDataSlice'
 import { setDeliveryData } from '../../../../redux/slices/deliveryDataSlice'
-import InputCheckBox from './InputCheckBox'
+// import InputCheckBox from './InputCheckBox'
 import styles from './Delivery.module.css'
 
 function DeliveryInfoForm() {
@@ -24,11 +24,6 @@ function DeliveryInfoForm() {
     const [zipCode, setZipCode] = useState(deliveryData.zipCode)
     const [city, setCity] = useState(deliveryData.city)
 
-    const [paymentCard, setPaymentCard] = useState(deliveryData.paymentCard)
-    const [blik, setBlik] = useState(deliveryData.blik)
-    const [googlePay, setGooglePay] = useState(deliveryData.googlePay)
-    const [giftCard, setGiftCard] = useState(deliveryData.giftCard)
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -43,21 +38,8 @@ function DeliveryInfoForm() {
             surname &&
             address &&
             zipCode &&
-            city &&
-            (paymentCard || blik || googlePay || giftCard),
-        [
-            email,
-            phoneNumber,
-            name,
-            surname,
-            address,
-            zipCode,
             city,
-            paymentCard,
-            blik,
-            googlePay,
-            giftCard,
-        ]
+        [email, phoneNumber, name, surname, address, zipCode, city]
     )
 
     const handleSubmitForm = (e) => {
@@ -73,10 +55,6 @@ function DeliveryInfoForm() {
                 optionalDdata,
                 zipCode,
                 city,
-                paymentCard,
-                blik,
-                googlePay,
-                giftCard,
             })
         )
         handleGoTocheckout()
@@ -108,7 +86,7 @@ function DeliveryInfoForm() {
                         <input
                             onInput={(e) => inputSpaceRemover(e)}
                             type="tel"
-                            id="phoneNumber" // Добавляем id
+                            id="phoneNumber"
                             name="phoneNumber"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
@@ -215,16 +193,7 @@ function DeliveryInfoForm() {
                         <label htmlFor="city">City</label>
                     </div>
                 </div>
-                <InputCheckBox
-                    setPaymentCard={setPaymentCard}
-                    setBlik={setBlik}
-                    setGooglePay={setGooglePay}
-                    setGiftCard={setGiftCard}
-                    paymentCard={paymentCard}
-                    blik={blik}
-                    googlePay={googlePay}
-                    giftCard={giftCard}
-                />
+
                 <div className={styles.buttonContainer}>
                     <button
                         type="submit"

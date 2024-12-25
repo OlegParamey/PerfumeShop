@@ -5,12 +5,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { selectDeliveryData } from '../../../../redux/slices/deliveryDataSlice'
 import { selectCartList } from '../../../../redux/slices/cartSlice'
 import CheckoutForm from './CheckoutForm'
-import PaymentListItems from './PaymentListItems'
-// import MethodPaymentCard from './PaymentMethods/MethodPaymentCard'
-// import MethodBlik from './PaymentMethods/MethodBlik'
 import MethodGooglePay from './PaymentMethods/MethodGooglePay'
-// import MethodGiftCard from './PaymentMethods/MethodGiftCard'
-import EditButton from './EditButton'
 import styles from './Payment.module.css'
 import { Elements } from '@stripe/react-stripe-js'
 
@@ -54,52 +49,10 @@ function PaymentMenu() {
         }
     }, [deliveryData, navigate])
 
-    // const handleSubmitForm = (e) => {
-    //     e.preventDefault()
-    //     console.log('Payment processed successfully!')
-    //     alert('Payment processed successfully!')
-    // }
-
     return (
         <>
-            <div>
-                <h1>FINALIZATION OF THE ORDER</h1>
-            </div>
             <div className={styles.paymentMenu}>
-                <div className={styles.infoContainer}>
-                    <div>
-                        <div className={styles.group}>
-                            <h2>CONTACTS</h2>
-                            <p>{deliveryData.email}</p>
-                            <p>{deliveryData.phoneNumber}</p>
-                            <EditButton />
-                        </div>
-                        <div className={styles.group}>
-                            <h2>ADDRESS</h2>
-                            <p>{deliveryData.name}</p>
-                            <p>{deliveryData.surname}</p>
-                            <p>{deliveryData.address}</p>
-                            <p>{deliveryData.zipCode}</p>
-                            <p>{deliveryData.city}</p>
-                            <EditButton />
-                        </div>
-                    </div>
-                    <div className={styles.itemListContainer}>
-                        <PaymentListItems
-                            finalPrice={finalPrice}
-                            itemsList={itemsList}
-                        />
-                    </div>
-                </div>
                 <div className={styles.methodContainer}>
-                    {/* <form onSubmit={handleSubmitForm}>
-                        {deliveryData.paymentCard && <MethodPaymentCard />}
-                        {deliveryData.blik && <MethodBlik />}
-                        {deliveryData.googlePay && (
-                            <MethodGooglePay finalPrice={finalPrice} />
-                        )}
-                        {deliveryData.giftCard && <MethodGiftCard />}
-                    </form> */}
                     {stripePromise && clientSecret ? (
                         <div className={styles.payment_form_container}>
                             <MethodGooglePay finalPrice={finalPrice} />
@@ -108,7 +61,10 @@ function PaymentMenu() {
                                 stripe={stripePromise}
                                 options={{ clientSecret }}
                             >
-                                <CheckoutForm />
+                                <CheckoutForm
+                                    deliveryData={deliveryData}
+                                    itemsList={itemsList}
+                                />
                             </Elements>
                         </div>
                     ) : (

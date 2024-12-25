@@ -2,7 +2,7 @@ import { PaymentElement } from '@stripe/react-stripe-js'
 import { useState } from 'react'
 import { useStripe, useElements } from '@stripe/react-stripe-js'
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ deliveryData, itemsList }) {
     const stripe = useStripe()
     const elements = useElements()
 
@@ -19,6 +19,30 @@ export default function CheckoutForm() {
         }
 
         setIsProcessing(true)
+
+        try {
+            const response = await fetch(
+                'http://localhost:4000/submit-delivery-form',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ deliveryData, itemsList }),
+                }
+            )
+            setTimeout(() => {}, 3000)
+
+            if (!response.ok) {
+                throw new Error('Failed to send data to the server')
+            }
+
+            const result = await response.json()
+            console.log('Server response:', result)
+        } catch (err) {
+            console.error('Error sending data to server:', err)
+            setMessage('Payment succeeded, but failed to notify the server.')
+        }
 
         const { error, paymentIntent } = await stripe.confirmPayment({
             elements,
@@ -42,13 +66,16 @@ export default function CheckoutForm() {
 
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
-            <PaymentElement id="payment-element" />
+            <PaymentElement
+                id="payment-element"
+                options={{ layout: 'accordion' }}
+            />
             <button disabled={isProcessing || !stripe || !elements} id="submit">
                 <span id="button-text">
                     {isProcessing ? 'Processing ... ' : 'Pay now'}
                 </span>
             </button>
-            {/* Show any error or success messages */}
+            {/* Show any error or success messages ///////////////////////////////////////////////////*/}
             {message && <div id="payment-message">{message}</div>}
         </form>
     )

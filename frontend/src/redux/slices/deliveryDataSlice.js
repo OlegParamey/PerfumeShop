@@ -9,10 +9,10 @@ const initialState = {
     optionalDdata: '',
     zipCode: '',
     city: '',
-    paymentCard: false,
-    blik: false,
-    googlePay: false,
-    giftCard: false,
+    // paymentCard: false,
+    // blik: false,
+    // googlePay: false,
+    // giftCard: false,
 }
 
 const deliverySlice = createSlice({

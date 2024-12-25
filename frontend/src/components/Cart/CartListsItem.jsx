@@ -69,7 +69,7 @@ function CartListsItem({ data }) {
                 <div className={styles.itemCapacityPrice}>
                     <strong>{data.capacity} ml</strong>
                     <div className={styles.priceContainer}>
-                        <strong>{data.subtotal} zł</strong>
+                        <strong>{Number(data.subtotal).toFixed(2)} zł</strong>
                         <p className={styles.priceText}>
                             Price per one {data.price}zł
                         </p>
